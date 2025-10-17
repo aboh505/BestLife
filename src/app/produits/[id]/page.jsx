@@ -112,7 +112,7 @@ export default function DetailProduitPage() {
               <div className="border-t pt-6">
                 <button onClick={handleAjouterPanier} disabled={produit.stock === 0}
                   className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 text-black font-bold py-4 rounded-lg transition transform hover:scale-105 mb-4">
-                  {produit.stock > 0 ? '🛒 Ajouter au panier' : 'Rupture de stock'}
+                  {produit.stock > 0 ? ' Ajouter au panier' : 'Rupture de stock'}
                 </button>
                 {message && (
                   <div className="mt-4 bg-green-50 border-l-4 border-green-500 text-green-700 px-4 py-3 rounded font-semibold">{message}</div>

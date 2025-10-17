@@ -44,17 +44,18 @@ export default function Navbar() {
               Accueil
             </Link>
             <Link
-              href="/produits"
-              className={`text-white hover:text-yellow-400 transition ${pathname === '/produits' ? 'text-yellow-400 font-semibold' : ''}`}
-            >
-              Produits
-            </Link>
-            <Link
               href="/about"
               className={`text-white hover:text-yellow-400 transition ${pathname === '/about' ? 'text-yellow-400 font-semibold' : ''}`}
             >
               À propos
             </Link>
+            <Link
+              href="/produits"
+              className={`text-white hover:text-yellow-400 transition ${pathname === '/produits' ? 'text-yellow-400 font-semibold' : ''}`}
+            >
+              Produits
+            </Link>
+            
             <Link
               href="/faq"
               className={`text-white hover:text-yellow-400 transition ${pathname === '/faq' ? 'text-yellow-400 font-semibold' : ''}`}
