@@ -72,12 +72,12 @@ export default function CommandePage() {
             {panier.map(item => (
               <div key={item.id} className="flex justify-between py-3 border-b">
                 <span className="font-semibold">{item.nom} x{item.quantite}</span>
-                <span className="font-bold text-lg">{(item.prix * item.quantite).toFixed(2)}€</span>
+                <span className="font-bold text-lg">{(item.prix * item.quantite).toLocaleString('fr-FR')} FCFA</span>
               </div>
             ))}
             <div className="flex justify-between pt-6 text-2xl font-bold">
               <span>Total</span>
-              <span className="text-yellow-600">{getTotal().toFixed(2)}€</span>
+              <span className="text-yellow-600">{getTotal().toLocaleString('fr-FR')} FCFA</span>
             </div>
           </div>
           <button onClick={passerCommande} className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 rounded-lg transition transform hover:scale-105">
@@ -116,7 +116,7 @@ export default function CommandePage() {
                     <div key={article.id} className="text-gray-700 font-medium">{article.nom} x{article.quantite}</div>
                   ))}
                 </div>
-                <div className="text-right font-bold text-2xl text-yellow-600">Total: {commande.total.toFixed(2)}€</div>
+                <div className="text-right font-bold text-2xl text-yellow-600">Total: {commande.total.toLocaleString('fr-FR')} FCFA</div>
               </div>
             ))}
           </div>

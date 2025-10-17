@@ -2,6 +2,7 @@
 
 import { useContext } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { PanierContext } from '@/context/PanierContext';
 import { AuthContext } from '@/context/AuthContext';
@@ -49,8 +50,17 @@ export default function PanierPage() {
             {panier.map((item) => (
               <div key={item.id} className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition p-6">
                 <div className="flex gap-6">
-                  <div className="w-24 h-24 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-4xl">📱</span>
+                  <div className="relative w-24 h-24 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    {item.image ? (
+                      <Image 
+                        src={item.image} 
+                        alt={item.nom}
+                        fill
+                        className="object-contain p-2"
+                      />
+                    ) : (
+                      <span className="text-4xl">📱</span>
+                    )}
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between mb-2">
@@ -73,8 +83,8 @@ export default function PanierPage() {
                         <button onClick={() => modifierQuantite(item.id, item.quantite + 1)} className="px-4 py-2 hover:bg-gray-100 font-bold transition">+</button>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-600">{item.prix}€ × {item.quantite}</div>
-                        <div className="text-2xl font-bold text-black">{(item.prix * item.quantite).toFixed(2)}€</div>
+                        <div className="text-sm text-gray-600">{item.prix.toLocaleString('fr-FR')} FCFA × {item.quantite}</div>
+                        <div className="text-2xl font-bold text-black">{(item.prix * item.quantite).toLocaleString('fr-FR')} FCFA</div>
                       </div>
                     </div>
                   </div>
@@ -90,7 +100,7 @@ export default function PanierPage() {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between text-gray-700">
                   <span>Sous-total</span>
-                  <span className="font-bold">{getTotal().toFixed(2)}€</span>
+                  <span className="font-bold">{getTotal().toLocaleString('fr-FR')} FCFA</span>
                 </div>
                 <div className="flex justify-between text-gray-700">
                   <span>Livraison</span>
@@ -98,7 +108,7 @@ export default function PanierPage() {
                 </div>
                 <div className="border-t-2 pt-4 flex justify-between text-2xl font-bold">
                   <span>Total</span>
-                  <span className="text-yellow-600">{getTotal().toFixed(2)}€</span>
+                  <span className="text-yellow-600">{getTotal().toLocaleString('fr-FR')} FCFA</span>
                 </div>
               </div>
               <button onClick={handleCommander} className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 rounded-lg mb-4 transition transform hover:scale-105">
