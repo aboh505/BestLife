@@ -42,7 +42,7 @@ export default function RegisterPage() {
     utilisateurs.push(nouvelUtilisateur);
     localStorage.setItem('utilisateurs', JSON.stringify(utilisateurs));
     connexion(nouvelUtilisateur);
-    router.push('/');
+    router.push('/login');
   };
 
   return (
