@@ -26,12 +26,12 @@ export default function FAQPage() {
     {
       id: 4,
       question: "Comment contacter le support client ?",
-      answer: "Vous pouvez nous contacter par email à contact@bestlife.com, par téléphone au +33 1 23 45 67 89 (du lundi au vendredi, 9h-18h), ou via notre formulaire de contact."
+      answer: "Vous pouvez nous contacter par email à contact@bestlife.com, par téléphone au +237 2 42 21 30 28 (du lundi au vendredi, 9h-18h), ou via notre formulaire de contact."
     },
     {
       id: 5,
       question: "Quels sont les frais de livraison ?",
-      answer: "La livraison est GRATUITE pour toutes les commandes en France métropolitaine. Pour les DOM-TOM et l'international, des frais supplémentaires peuvent s'appliquer."
+      answer: "La livraison est GRATUITE pour toutes les commandes . Pour les DOM-TOM et l'international, des frais supplémentaires peuvent s'appliquer."
     },
     {
       id: 6,
@@ -79,7 +79,7 @@ export default function FAQPage() {
     {
       id: 6,
       question: "Puis-je payer en plusieurs fois ?",
-      answer: "Oui, le paiement en 3x ou 4x sans frais est disponible pour toute commande supérieure à 300€. L'option vous sera proposée lors du paiement."
+      answer: "Oui, le paiement en 3x ou 4x sans frais est disponible pour toute commande. L'option vous sera proposée lors du paiement."
     }
   ];
 

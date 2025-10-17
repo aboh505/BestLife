@@ -118,7 +118,7 @@ export default function DetailProduitPage() {
                   <div className="mt-4 bg-green-50 border-l-4 border-green-500 text-green-700 px-4 py-3 rounded font-semibold">{message}</div>
                 )}
                 <p className="text-sm text-gray-600 mt-4 text-center">
-                  💡 Vous pourrez modifier la quantité dans votre panier
+                  Vous pourrez modifier la quantité dans votre panier
                 </p>
               </div>
             </div>
