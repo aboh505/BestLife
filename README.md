@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BestLife - Site E-commerce de Téléphones Premium
 
-## Getting Started
+Site e-commerce moderne pour la vente de smartphones premium, développé avec Next.js 15 et Tailwind CSS.
 
-First, run the development server:
+## 🎨 Thème de Couleurs
 
+- **Jaune Or** : #FFD700 (Couleur principale)
+- **Orange Doré** : #FFA500 (Couleur secondaire)
+- **Noir** : #000000
+- **Blanc** : #FFFFFF
+
+## 🚀 Fonctionnalités
+
+### Pour les Clients
+- 🏠 Page d'accueil moderne avec slider hero
+- 📱 Catalogue de produits avec filtres
+- 🛒 Panier d'achat dynamique
+- 👤 Système d'authentification (inscription/connexion)
+- 📦 Gestion des commandes
+- 💳 Processus de paiement simplifié
+
+### Pour les Administrateurs
+- 🛠️ Dashboard admin
+- ➕ CRUD complet des produits
+- 📄 Gestion des commandes
+- 👥 Gestion des utilisateurs
+
+## 🛠️ Installation
+
+1. **Installer les dépendances**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Lancer le serveur de développement**
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. **Ouvrir dans le navigateur**
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🖼️ Gestion des Images
 
-## Learn More
+Consultez le fichier `GUIDE_IMAGES.md` pour des instructions détaillées sur comment remplacer les images placeholder par vos propres images.
 
-To learn more about Next.js, take a look at the following resources:
+### Emplacements des images :
+- **Hero Slider** : `public/images/hero-1.jpg`, `hero-2.jpg`
+- **Produits** : `public/images/products/`
+- **Collections** : `public/images/collections/`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💾 Stockage des Données
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Le site utilise **localStorage** pour stocker :
+- Les informations utilisateur
+- Le panier d'achat
+- Les commandes
+- Les données d'authentification
 
-## Deploy on Vercel
+## 📦 Scripts Disponibles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev      # Démarrer en mode développement
+npm run build    # Construire pour la production
+npm start        # Démarrer en mode production
+npm run lint     # Vérifier le code
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Technologies Utilisées
+
+- **Next.js 15** - Framework React
+- **React 19** - Bibliothèque UI
+- **Tailwind CSS** - Framework CSS
+- **Context API** - Gestion d'état
+- **localStorage** - Stockage local
+
+## 📞 Contact
+
+Pour toute question : contact@bestlife.com
