@@ -26,14 +26,15 @@ export default function ContactPage() {
               <div className="absolute -top-20 -left-20 w-40 h-40 bg-yellow-400 rounded-full opacity-20"></div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center mb-6">
-                  <div className="relative w-32 h-32">
-                    <Image 
-                      src="/logo.png" 
-                      alt="BestLife Logo" 
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
+                  <div className="relative w-40 h-16 mb-6">
+                                <Image 
+                                  src="/logo1.png" 
+                                  alt="BestLife Logo" 
+                                  width={140}
+                                  height={64}
+                                  className="object-contain"
+                                />
+                              </div>
                 </div>
                 <h1 className="text-4xl font-bold mb-8 text-center">Contactez-nous</h1>
                 <div className="space-y-6">
@@ -72,7 +73,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="mt-8 p-6 bg-yellow-50 rounded-2xl border-2 border-yellow-200">
-                  <p className="text-sm text-gray-700"><span className="font-bold">📧 Réponse rapide :</span> Toutes les demandes reçoivent une réponse sous 24 heures.</p>
+                  <p className="text-sm text-gray-700"><span className="font-bold">Réponse rapide :</span> Toutes les demandes reçoivent une réponse sous 24 heures.</p>
                 </div>
                 
               </div>

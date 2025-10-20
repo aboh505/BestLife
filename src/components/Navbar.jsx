@@ -22,19 +22,17 @@ export default function Navbar() {
     <nav className="bg-black shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-20 h-15 flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="relative w-32 h-12 flex items-center justify-center">
               <Image
-                src="/logo.png"
+                src="/logo1.png"
                 alt="BestLife Logo"
-                fill
+                width={90}
+                height={38}
                 className="object-contain"
+                priority
               />
             </div>
-            <span className="text-2xl font-Raleway, sans-serif text-amber-500 leading-none flex items-center">
-              BestLife
-            </span>
-
           </Link>
           <div className="hidden md:flex items-center space-x-8">
             <Link

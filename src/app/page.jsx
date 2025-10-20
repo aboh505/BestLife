@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
   
   const heroSlides = [
     {
@@ -20,6 +19,18 @@ export default function Home() {
       subtitle: 'Collection 2025',
       image: '/hero2.jpg',
       buttonText: 'Voir Collection'
+    },
+    {
+      title: 'Électronique Moderne',
+      subtitle: 'Technologie de pointe',
+      image: '/col1.jpg',
+      buttonText: 'Explorer'
+    },
+    {
+      title: 'Immobilier de Luxe',
+      subtitle: 'Votre maison de rêve',
+      image: '/col2.jpg',
+      buttonText: 'Découvrir'
     }
   ];
 
@@ -68,12 +79,12 @@ export default function Home() {
   const collections = [
     { 
       title: 'Premium Collection', 
-      image: '/col1.jpg',
+      image: '/e1.jpg',
       link: '/produits?filter=premium'
     },
     { 
       title: 'Gaming Phones', 
-      image: '/col2.jpg',
+      image: '/e2.jpg',
       link: '/produits?filter=gaming'
     },
     { 
@@ -89,29 +100,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, [heroSlides.length]);
-
-  // Compte à rebours jusqu'à minuit
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const tomorrow = new Date(now);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      tomorrow.setHours(0, 0, 0, 0);
-      const difference = tomorrow - now;
-
-      if (difference > 0) {
-        const hours = Math.floor(difference / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-        
-        setTimeLeft({ hours, minutes, seconds });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -225,32 +213,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Flash Sale Banner */}
-      <section className="bg-yellow-400 py-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center gap-4 mb-4 md:mb-0">
-              <h3 className="text-2xl font-bold text-black">Flash Sale aujourd'hui</h3>
-              <div className="flex gap-2 text-black font-mono font-bold">
-                <div className="bg-white px-3 py-2 rounded min-w-[3rem] text-center">
-                  {String(timeLeft.hours).padStart(2, '0')}
-                </div>
-                <span className="py-2">:</span>
-                <div className="bg-white px-3 py-2 rounded min-w-[3rem] text-center">
-                  {String(timeLeft.minutes).padStart(2, '0')}
-                </div>
-                <span className="py-2">:</span>
-                <div className="bg-white px-3 py-2 rounded min-w-[3rem] text-center">
-                  {String(timeLeft.seconds).padStart(2, '0')}
-                </div>
-              </div>
-            </div>
-            <p className="text-black mb-4 md:mb-0">Économisez jusqu'à -30% sur une sélection</p>
-            <Link href="/produits?promo=flash">
-              <button className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition">
-                Voir les offres
-              </button>
-            </Link>
+      {/* Barre de message défilant */}
+      <section className="bg-gray-200 py-4 overflow-hidden">
+        <div className="relative">
+          <div className="animate-scroll whitespace-nowrap">
+            <span className="inline-block text-black font-bold text-lg px-8">
+              🎉 Bienvenue chez best life - Votre partenaire de confiance pour les smartphones premium, l'électronique moderne et l'immobilier de qualité ! |  Profitez de nos offres exceptionnelles sur toute notre gamme de produits | 🚚 Livraison gratuite partout au Cameroun | 🔒 Paiement 100% sécurisé | 💳 Facilités de paiement disponibles |  best life - Change Life, Change Future 
+            </span>
+            <span className="inline-block text-black font-bold text-lg px-8">
+              🎉 Bienvenue chez best life - Votre partenaire de confiance pour les smartphones premium, l'électronique moderne et l'immobilier de qualité ! | Profitez de nos offres exceptionnelles sur toute notre gamme de produits | 🚚 Livraison gratuite partout au Cameroun | 🔒 Paiement 100% sécurisé | 💳 Facilités de paiement disponibles |  best life - Change Life, Change Future 
+            </span>
           </div>
         </div>
       </section>

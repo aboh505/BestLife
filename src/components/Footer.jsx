@@ -8,17 +8,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-20 h-15">
+              <div className="relative w-40 h-16 mb-15">
                 <Image 
-                  src="/logo.png" 
+                  src="/logo1.png" 
                   alt="BestLife Logo" 
-                  fill
+                  width={160}
+                  height={64}
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-Raleway, sans-serif text-amber-500 leading-none flex items-center">BestLife</h3>
             </div>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-5">
               Votre boutique de téléphones premium en ligne
             </p>
           </div>
@@ -28,7 +28,6 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li><Link href="/" className="hover:text-white">Accueil</Link></li>
               <li><Link href="/produits" className="hover:text-white">Produits</Link></li>
-              <li><Link href="/panier" className="hover:text-white">Panier</Link></li>
               <li><Link href="/about" className="hover:text-white">A propos</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
@@ -57,7 +56,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 BestLife. Tous droits réservés.</p>
+          <p>&copy; 2025 best life. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

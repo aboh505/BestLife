@@ -32,18 +32,18 @@ function LoginForm() {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-gray-100 flex items-center justify-center py-12 px-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md border-t-4 border-yellow-500">
         <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <div className="relative w-28 h-28">
+          <div className="flex justify-center mb-3">
+            <div className="relative w-40 h-16 mb-10">
               <Image 
-                src="/logo.png" 
+                src="/logo1.png" 
                 alt="BestLife Logo" 
-                fill
+                width={140}
+                height={64}
                 className="object-contain"
               />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900">Connexion</h1>
-          <p className="text-gray-600 mt-2">Accédez à votre compte BestLife</p>
+          <h1 className="text-2xl font-bold text-gray-900 mt-4">Connexion</h1>
         </div>
         
         {erreur && <div className="bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded mb-6">{erreur}</div>}

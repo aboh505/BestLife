@@ -11,10 +11,10 @@ export default function AboutPage() {
   ];
 
   const expertise = [
-    { icon: '📊', title: 'Résultats mesurables', description: 'Suivi de performance en temps réel' },
-    { icon: '🤝', title: 'Solutions innovantes', description: 'Technologies de pointe' },
-    { icon: '💼', title: 'Expertise multi-industrie', description: 'Expérience diversifiée' },
-    { icon: '📈', title: 'Croissance durable', description: 'Stratégies à long terme' },
+    { icon: '-', title: 'Résultats mesurables', description: 'Suivi de performance en temps réel' },
+    { icon: '-', title: 'Solutions innovantes', description: 'Technologies de pointe' },
+    { icon: '-', title: 'Expertise multi-industrie', description: 'Expérience diversifiée' },
+    { icon: '-', title: 'Croissance durable', description: 'Stratégies à long terme' },
    
   ];
 
@@ -31,10 +31,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl font-bold mb-6">À propos de BestLife</h1>
+              <h1 className="text-5xl font-bold mb-6">À propos de best life</h1>
               <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                Chez BestLife, nous nous spécialisons dans la fourniture de smartphones premium de haute qualité. 
-                Avec plus de 10 ans d'expérience dans l'industrie, nous nous engageons à offrir une excellence 
+                Chez best life, nous nous spécialisons dans la fourniture de smartphones premium de haute qualité. 
+                Avec plus de 3 ans d'expérience dans l'industrie, nous nous engageons à offrir une excellence 
                 opérationnelle et à stimuler la croissance et l'innovation pour nos clients.
               </p>
               <div className="flex gap-4">
@@ -55,7 +55,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <div className="bg-gray-300 rounded-2xl overflow-hidden h-[500px] relative">
-                <Image src="/t3.jpg" alt="About BestLife" fill className="object-cover" />
+                <Image src="/t3.jpg" alt="About best life" fill className="object-cover" />
               </div>
             </div>
           </div>
