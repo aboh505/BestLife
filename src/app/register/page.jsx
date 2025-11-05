@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AuthContext } from '@/context/AuthContext';
+import { API_ENDPOINTS } from '@/config/api';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -13,10 +14,13 @@ export default function RegisterPage() {
   const [erreur, setErreur] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [chargement, setChargement] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErreur('');
+    
+    // Client-side validation
     if (formData.motDePasse !== formData.confirmMotDePasse) {
       setErreur('Les mots de passe ne correspondent pas');
       return;
@@ -25,24 +29,38 @@ export default function RegisterPage() {
       setErreur('Le mot de passe doit contenir au moins 6 caractères');
       return;
     }
-    const utilisateurs = JSON.parse(localStorage.getItem('utilisateurs') || '[]');
-    if (utilisateurs.find(u => u.email === formData.email)) {
-      setErreur('Cet email est déjà utilisé');
-      return;
+
+    setChargement(true);
+
+    try {
+      const response = await fetch(API_ENDPOINTS.REGISTER, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nom: formData.nom,
+          prenom: formData.prenom,
+          email: formData.email,
+          motDePasse: formData.motDePasse
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Auto-login after registration
+        connexion(data.data, data.token);
+        router.push('/');
+      } else {
+        setErreur(data.message || 'Erreur lors de l\'inscription');
+      }
+    } catch (error) {
+      console.error('Register error:', error);
+      setErreur('Erreur de connexion. Vérifiez que le backend est démarré.');
+    } finally {
+      setChargement(false);
     }
-    const nouvelUtilisateur = {
-      id: Date.now(),
-      nom: formData.nom,
-      prenom: formData.prenom,
-      email: formData.email,
-      motDePasse: formData.motDePasse,
-      role: 'client',
-      dateInscription: new Date().toISOString()
-    };
-    utilisateurs.push(nouvelUtilisateur);
-    localStorage.setItem('utilisateurs', JSON.stringify(utilisateurs));
-    connexion(nouvelUtilisateur);
-    router.push('/login');
   };
 
   return (
@@ -139,8 +157,12 @@ export default function RegisterPage() {
               </button>
             </div>
           </div>
-          <button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 rounded-lg transition transform hover:scale-105">
-            S'inscrire
+          <button 
+            type="submit" 
+            disabled={chargement}
+            className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-black font-bold py-4 rounded-lg transition transform hover:scale-105"
+          >
+            {chargement ? 'Inscription en cours...' : "S'inscrire"}
           </button>
         </form>
 

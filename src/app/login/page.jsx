@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AuthContext } from '@/context/AuthContext';
+import { API_ENDPOINTS } from '@/config/api';
 
 function LoginForm() {
   const router = useRouter();
@@ -13,18 +14,40 @@ function LoginForm() {
   const [formData, setFormData] = useState({ email: '', motDePasse: '' });
   const [erreur, setErreur] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [chargement, setChargement] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErreur('');
-    const utilisateurs = JSON.parse(localStorage.getItem('utilisateurs') || '[]');
-    const utilisateur = utilisateurs.find(u => u.email === formData.email && u.motDePasse === formData.motDePasse);
-    if (utilisateur) {
-      connexion(utilisateur);
-      const redirect = searchParams.get('redirect') || '/';
-      router.push(redirect);
-    } else {
-      setErreur('Email ou mot de passe incorrect');
+    setChargement(true);
+
+    try {
+      const response = await fetch(API_ENDPOINTS.LOGIN, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          motDePasse: formData.motDePasse
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Save token and user data
+        connexion(data.data, data.token);
+        const redirect = searchParams.get('redirect') || '/';
+        router.push(redirect);
+      } else {
+        setErreur(data.message || 'Email ou mot de passe incorrect');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setErreur('Erreur de connexion. Vérifiez que le backend est démarré.');
+    } finally {
+      setChargement(false);
     }
   };
 
@@ -84,8 +107,12 @@ function LoginForm() {
               </button>
             </div>
           </div>
-          <button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 rounded-lg transition transform hover:scale-105">
-            Se connecter
+          <button 
+            type="submit" 
+            disabled={chargement}
+            className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-black font-bold py-4 rounded-lg transition transform hover:scale-105"
+          >
+            {chargement ? 'Connexion en cours...' : 'Se connecter'}
           </button>
         </form>
 
