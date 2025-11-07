@@ -51,12 +51,10 @@ exports.getDashboardStats = async (req, res) => {
     res.status(200).json({
       success: true,
       data: {
-        totals: {
-          users: totalUsers,
-          products: totalProducts,
-          orders: totalOrders,
-          revenue: totalRevenue
-        },
+        totalUsers,
+        totalProducts,
+        totalOrders,
+        totalRevenue,
         recentOrders,
         lowStockProducts,
         ordersByStatus,

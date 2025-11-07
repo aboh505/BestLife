@@ -23,6 +23,13 @@ export const API_ENDPOINTS = {
   // Admin
   DASHBOARD: `${API_BASE_URL}/api/admin/dashboard`,
   USERS: `${API_BASE_URL}/api/users`,
+  USER: (id) => `${API_BASE_URL}/api/users/${id}`,
+  
+  // Upload
+  UPLOAD_PRODUCT: `${API_BASE_URL}/api/upload/product`,
+  DELETE_UPLOAD: (filename) => `${API_BASE_URL}/api/upload/product/${filename}`
 };
+
+export { API_BASE_URL };
 
 export default API_BASE_URL;

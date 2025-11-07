@@ -2,8 +2,7 @@ import "./globals.css";
 import { Roboto } from 'next/font/google';
 import { AuthProvider } from '@/context/AuthContext';
 import { PanierProvider } from '@/context/PanierContext';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import LayoutWrapper from '@/components/LayoutWrapper';
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700', '900'],
@@ -22,11 +21,9 @@ export default function RootLayout({ children }) {
       <body className={`${roboto.className} antialiased flex flex-col min-h-screen`}>
         <AuthProvider>
           <PanierProvider>
-            <Navbar />
-            <main className="flex-1">
+            <LayoutWrapper>
               {children}
-            </main>
-            <Footer />
+            </LayoutWrapper>
           </PanierProvider>
         </AuthProvider>
       </body>

@@ -25,7 +25,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Serve static files (uploads)
-app.use('/uploads', express.static('uploads'));
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
@@ -34,6 +35,7 @@ app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 app.use('/api/contact', require('./routes/contactRoutes'));
+app.use('/api/upload', require('./routes/uploadRoutes'));
 
 // Root route
 app.get('/', (req, res) => {
@@ -47,7 +49,8 @@ app.get('/', (req, res) => {
       orders: '/api/orders',
       users: '/api/users',
       admin: '/api/admin',
-      contact: '/api/contact'
+      contact: '/api/contact',
+      upload: '/api/upload'
     }
   });
 });

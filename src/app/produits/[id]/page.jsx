@@ -5,37 +5,35 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PanierContext } from '@/context/PanierContext';
+import { API_ENDPOINTS } from '@/config/api';
 
 export default function DetailProduitPage() {
   const params = useParams();
   const { ajouterAuPanier } = useContext(PanierContext);
   const [produit, setProduit] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    const produitsDemo = [
-      { id: 1, nom: 'iPhone 15 Pro', marque: 'Apple', prix: 786350, ancienPrix: 920000, description: 'Le dernier iPhone avec puce A17 Pro', 
-        descriptionLongue: 'L\'iPhone 15 Pro redéfinit ce qu\'un smartphone peut faire avec sa puce A17 Pro révolutionnaire.',
-        stock: 15, image: '/i1.jpg', caracteristiques: ['Écran Super Retina XDR 6.1"', 'Puce A17 Pro', 'Triple caméra 48MP', '128GB', '5G', 'Face ID'] },
-      { id: 2, nom: 'Samsung Galaxy S25 Ultra', marque: 'Samsung', prix: 852000, ancienPrix: 1050000, description: 'Smartphone premium avec S Pen',
-        descriptionLongue: 'Le Galaxy S25 Ultra est le summum de l\'innovation Samsung avec son S Pen intégré.',
-        stock: 20, image: '/s1.jpg', caracteristiques: ['Écran Dynamic AMOLED 6.8"', 'Snapdragon 8 Gen 3', 'Quad caméra 200MP', '256GB', 'S Pen', '5G'] },
-      { id: 3, nom: 'Google Pixel 8 Pro', marque: 'Google', prix: 655350, ancienPrix: 780000, description: 'Meilleure photographie IA',
-        descriptionLongue: 'Le Pixel 8 Pro offre la meilleure expérience Android pure avec des fonctionnalités IA révolutionnaires.',
-        stock: 12, image: '/p1.jpg', caracteristiques: ['Écran LTPO OLED 6.7"', 'Google Tensor G3', 'Triple caméra 50MP', '128GB', 'Magic Eraser', '5G'] },
-      { id: 4, nom: 'OnePlus 12', marque: 'OnePlus', prix: 524350, ancienPrix: 650000, description: 'Performance et charge rapide',
-        descriptionLongue: 'Le OnePlus 12 combine performance de pointe et charge ultra-rapide.',
-        stock: 18, image: '/o1.jpg', caracteristiques: ['Écran AMOLED 6.7"', 'Snapdragon 8 Gen 3', 'Triple caméra Hasselblad 50MP', '256GB', 'Charge 100W', '5G'] },
-      { id: 5, nom: 'Xiaomi 14 Pro', marque: 'Xiaomi', prix: 590000, ancienPrix: 720000, description: 'Excellent rapport qualité-prix',
-        descriptionLongue: 'Le Xiaomi 14 Pro offre des spécifications flagship à un prix accessible.',
-        stock: 25, image: '/x1.jpg', caracteristiques: ['Écran AMOLED 6.73"', 'Snapdragon 8 Gen 3', 'Triple caméra Leica 50MP', '256GB', 'Charge 120W', '5G'] },
-      { id: 6, nom: 'iPhone 14', marque: 'Apple', prix: 524350, ancienPrix: 650000, description: 'iPhone fiable et performant',
-        descriptionLongue: 'L\'iPhone 14 reste un excellent choix avec sa puce A15 Bionic éprouvée.',
-        stock: 30, image: '/i1.jpg', caracteristiques: ['Écran Super Retina XDR 6.1"', 'Puce A15 Bionic', 'Double caméra 12MP', '128GB', '5G', 'Face ID'] }
-    ];
-    const produitTrouve = produitsDemo.find(p => p.id === parseInt(params.id));
-    setProduit(produitTrouve);
+    fetchProduct();
   }, [params.id]);
+
+  const fetchProduct = async () => {
+    try {
+      const response = await fetch(API_ENDPOINTS.PRODUCT(params.id));
+      const data = await response.json();
+      
+      if (data.success) {
+        setProduit(data.data);
+      } else {
+        console.error('Product not found:', data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching product:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleAjouterPanier = () => {
     if (produit) {
@@ -44,6 +42,14 @@ export default function DetailProduitPage() {
       setTimeout(() => setMessage(''), 3000);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
+      </div>
+    );
+  }
 
   if (!produit) {
     return (
@@ -77,6 +83,7 @@ export default function DetailProduitPage() {
                 alt={produit.nom} 
                 fill
                 className="object-contain p-8"
+                unoptimized={produit.image?.startsWith('http')}
               />
             </div>
 
