@@ -19,7 +19,7 @@ export default function Navbar() {
   const fermerMenu = () => setMenuOuvert(false);
 
   return (
-    <nav className="bg-black shadow-lg sticky top-0 z-50">
+    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-amber-500">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
@@ -28,7 +28,7 @@ export default function Navbar() {
                 src="/logo1.png"
                 alt="BestLife Logo"
                 width={90}
-                height={38}
+                height={35}
                 className="object-contain"
                 priority
               />
@@ -37,39 +37,39 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className={`text-white hover:text-yellow-400 transition ${pathname === '/' ? 'text-yellow-400 font-semibold' : ''}`}
+              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/' ? 'text-amber-600 font-bold' : ''}`}
             >
               Accueil
             </Link>
             <Link
               href="/about"
-              className={`text-white hover:text-yellow-400 transition ${pathname === '/about' ? 'text-yellow-400 font-semibold' : ''}`}
+              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/about' ? 'text-amber-600 font-bold' : ''}`}
             >
               À propos
             </Link>
             <Link
               href="/produits"
-              className={`text-white hover:text-yellow-400 transition ${pathname === '/produits' ? 'text-yellow-400 font-semibold' : ''}`}
+              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/produits' ? 'text-amber-600 font-bold' : ''}`}
             >
               Produits
             </Link>
             
             <Link
               href="/faq"
-              className={`text-white hover:text-yellow-400 transition ${pathname === '/faq' ? 'text-yellow-400 font-semibold' : ''}`}
+              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/faq' ? 'text-amber-600 font-bold' : ''}`}
             >
               FAQ
             </Link>
             <Link
               href="/contact"
-              className={`text-white hover:text-yellow-400 transition ${pathname === '/contact' ? 'text-yellow-400 font-semibold' : ''}`}
+              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/contact' ? 'text-amber-600 font-bold' : ''}`}
             >
               Contact
             </Link>
             {utilisateur?.role === 'admin' && (
               <Link
                 href="/admin/produits"
-                className={`text-white hover:text-yellow-400 transition ${pathname.startsWith('/admin') ? 'text-yellow-400 font-semibold' : ''}`}
+                className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
               >
                 Admin
               </Link>
@@ -78,10 +78,10 @@ export default function Navbar() {
 
           <div className="flex items-center space-x-4">
             <Link href="/panier" className="relative">
-              <button className="p-2 hover:bg-gray-800 rounded-full transition">
+              <button className="p-2 hover:bg-amber-50 rounded-full transition">
                 <span className="text-xl">🛒</span>
                 {nombreArticles > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-yellow-500 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                  <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                     {nombreArticles}
                   </span>
                 )}
@@ -90,20 +90,20 @@ export default function Navbar() {
 
             {utilisateur ? (
               <div className="hidden md:flex items-center space-x-3">
-                <Link href="/profil" className="text-white hover:text-yellow-400">
+                <Link href="/profil" className="text-gray-800 hover:text-amber-600">
                   <span className="font-medium">{utilisateur.prenom}</span>
                 </Link>
                 <button
                   onClick={deconnexion}
-                  className="bg-red-600 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition"
-                >
+                  className="bg-black hover:bg-red-800 text-white px-4 py-2 rounded-lg transition font-medium">
+                
                   Déconnexion
                 </button>
               </div>
             ) : (
               <div className="hidden md:flex items-center space-x-2">
                 <Link href="/register">
-                  <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg transition">
+                  <button className="bg-yellow-600  hover:bg-yellow-600  text-white px-4 py-2 rounded-lg transition font-medium">
                     Inscription
                   </button>
                 </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
             {/* Bouton hamburger pour mobile */}
             <button
               onClick={toggleMenu}
-              className="md:hidden text-white p-2 hover:bg-gray-800 rounded-lg transition"
+              className="md:hidden text-gray-800 p-2 hover:bg-amber-50 rounded-lg transition"
               aria-label="Menu"
             >
               <svg
@@ -144,40 +144,40 @@ export default function Navbar() {
 
         {/* Menu mobile */}
         {menuOuvert && (
-          <div className="md:hidden bg-gray-900 border-t border-gray-800">
+          <div className="md:hidden bg-white border-t-2 border-amber-500">
             <div className="px-4 py-4 space-y-3">
               <Link
                 href="/"
                 onClick={fermerMenu}
-                className={`block text-white hover:text-yellow-400 transition py-2 ${pathname === '/' ? 'text-yellow-400 font-semibold' : ''}`}
+                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/' ? 'text-amber-600 font-bold' : ''}`}
               >
                 Accueil
               </Link>
               <Link
                 href="/produits"
                 onClick={fermerMenu}
-                className={`block text-white hover:text-yellow-400 transition py-2 ${pathname === '/produits' ? 'text-yellow-400 font-semibold' : ''}`}
+                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/produits' ? 'text-amber-600 font-bold' : ''}`}
               >
                 Produits
               </Link>
               <Link
                 href="/about"
                 onClick={fermerMenu}
-                className={`block text-white hover:text-yellow-400 transition py-2 ${pathname === '/about' ? 'text-yellow-400 font-semibold' : ''}`}
+                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/about' ? 'text-amber-600 font-bold' : ''}`}
               >
                 À propos
               </Link>
               <Link
                 href="/faq"
                 onClick={fermerMenu}
-                className={`block text-white hover:text-yellow-400 transition py-2 ${pathname === '/faq' ? 'text-yellow-400 font-semibold' : ''}`}
+                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/faq' ? 'text-amber-600 font-bold' : ''}`}
               >
                 FAQ
               </Link>
               <Link
                 href="/contact"
                 onClick={fermerMenu}
-                className={`block text-white hover:text-yellow-400 transition py-2 ${pathname === '/contact' ? 'text-yellow-400 font-semibold' : ''}`}
+                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/contact' ? 'text-amber-600 font-bold' : ''}`}
               >
                 Contact
               </Link>
@@ -185,19 +185,19 @@ export default function Navbar() {
                 <Link
                   href="/admin/produits"
                   onClick={fermerMenu}
-                  className={`block text-white hover:text-yellow-400 transition py-2 ${pathname.startsWith('/admin') ? 'text-yellow-400 font-semibold' : ''}`}
+                  className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
                 >
                   Admin
                 </Link>
               )}
 
-              <div className="pt-4 border-t border-gray-800">
+              <div className="pt-4 border-t border-amber-200">
                 {utilisateur ? (
                   <>
                     <Link
                       href="/profil"
                       onClick={fermerMenu}
-                      className="block text-white hover:text-yellow-400 transition py-2"
+                      className="block text-gray-800 hover:text-amber-600 transition py-2 font-medium"
                     >
                       Mon profil ({utilisateur.prenom})
                     </Link>
@@ -206,14 +206,14 @@ export default function Navbar() {
                         deconnexion();
                         fermerMenu();
                       }}
-                      className="w-full text-left bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition mt-2"
+                      className="w-full text-left bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition mt-2 font-medium"
                     >
                       Déconnexion
                     </button>
                   </>
                 ) : (
                   <Link href="/register" onClick={fermerMenu}>
-                    <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg transition">
+                    <button className="w-full bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg transition font-medium">
                       Inscription
                     </button>
                   </Link>

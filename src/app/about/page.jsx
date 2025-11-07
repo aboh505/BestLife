@@ -61,7 +61,20 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+ {/* Barre de message défilant */}
+      <section className="bg-gray-200 py-4 overflow-hidden">
+        <div className="relative">
+          <div className="animate-scroll whitespace-nowrap">
+            <span className="inline-block text-black font-bold text-lg px-8">
+              🎉 Bienvenue chez best life - Votre partenaire de confiance pour les smartphones premium, l'électronique moderne et l'immobilier de qualité ! |  Profitez de nos offres exceptionnelles sur toute notre gamme de produits | 🚚 Livraison gratuite partout au Cameroun | 🔒 Paiement 100% sécurisé | 💳 Facilités de paiement disponibles |  best life - Change Life, Change Future 
+            </span>
+            <span className="inline-block text-black font-bold text-lg px-8">
+              🎉 Bienvenue chez best life - Votre partenaire de confiance pour les smartphones premium, l'électronique moderne et l'immobilier de qualité ! | Profitez de nos offres exceptionnelles sur toute notre gamme de produits | 🚚 Livraison gratuite partout au Cameroun | 🔒 Paiement 100% sécurisé | 💳 Facilités de paiement disponibles |  best life - Change Life, Change Future 
+            </span>
+          </div>
+        </div>
+      </section>
+      
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">

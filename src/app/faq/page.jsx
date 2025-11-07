@@ -190,18 +190,24 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Vous ne trouvez pas votre réponse ?</h2>
-          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Notre équipe de support est là pour vous aider. Contactez-nous et nous vous répondrons dans les plus brefs délais.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full transition transform hover:scale-105">
-              📧 Envoyer un email
-            </Link>
-          
+  <section className="py-20 bg-black text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <div className="text-yellow-400 text-5xl mb-4">🎯</div>
+              <h3 className="text-2xl font-bold mb-4">Notre Mission</h3>
+              <p className="text-gray-400">Rendre les smartphones premium accessibles à tous.</p>
+            </div>
+            <div>
+              <div className="text-yellow-400 text-5xl mb-4">👁️</div>
+              <h3 className="text-2xl font-bold mb-4">Notre Vision</h3>
+              <p className="text-gray-400">Devenir la référence pour l'achat de smartphones premium.</p>
+            </div>
+            <div>
+              <div className="text-yellow-400 text-5xl mb-4">💎</div>
+              <h3 className="text-2xl font-bold mb-4">Nos Valeurs</h3>
+              <p className="text-gray-400">Excellence, Innovation, Transparence et Satisfaction Client.</p>
+            </div>
           </div>
         </div>
       </section>

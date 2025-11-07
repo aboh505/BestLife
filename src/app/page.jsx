@@ -3,34 +3,43 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight, Star, TrendingUp, Zap, Shield } from 'lucide-react';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroSlides = [
     {
-      title: 'Smartphones Premium',
-      subtitle: 'iPhone 15 Pro Max',
+      title: 'Nouvelle Collection 2025',
+      subtitle: 'SMARTPHONES PREMIUM',
+      description: 'Découvrez les derniers iPhone, Samsung Galaxy et plus encore',
       image: '/hero1.jpg',
-      buttonText: 'Découvrir'
+      badge: 'Nouveau',
+      gradient: 'from-blue-500/80 to-blue-700/80'
     },
     {
-      title: 'Dernières Nouveautés',
-      subtitle: 'Collection 2025',
+      title: 'Offres Exceptionnelles',
+      subtitle: 'JUSQU\'À -40% DE RÉDUCTION',
+      description: 'Profitez de nos promotions sur une sélection de produits',
       image: '/hero2.jpg',
-      buttonText: 'Voir Collection'
+      badge: 'Promo',
+      gradient: 'from-white-600/80 to-white-800/80'
     },
     {
-      title: 'Électronique Moderne',
-      subtitle: 'Technologie de pointe',
+      title: 'Technologie de Pointe',
+      subtitle: 'ÉLECTRONIQUE & LIFESTYLE',
+      description: 'Équipez votre maison avec les meilleurs appareils',
       image: '/col1.jpg',
-      buttonText: 'Explorer'
+      badge: 'Tendance',
+      gradient: 'from-amber-500/80 to-amber-700/80'
     },
     {
-      title: 'Immobilier de Luxe',
-      subtitle: 'Votre maison de rêve',
+      title: 'Bien-être & Confort',
+      subtitle: 'MEUBLES & DÉCORATION',
+      description: 'Transformez votre espace de vie',
       image: '/col2.jpg',
-      buttonText: 'Découvrir'
+      badge: 'Lifestyle',
+      gradient: 'from-green-400/80 to-green-600/80'
     }
   ];
 
@@ -89,7 +98,7 @@ export default function Home() {
     },
     { 
       title: 'Budget Friendly', 
-      image: '/col3.jpg',
+      image: '/col1.jpg',
       link: '/produits?filter=budget'
     }
   ];
@@ -97,22 +106,30 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, [heroSlides.length]);
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Slider */}
-      <section className="relative h-[600px] bg-gray-900 overflow-hidden">
+      {/* Hero Carousel - Enhanced */}
+      <section className="relative h-[700px] bg-gradient-to-br from-gray-900 to-black overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-1000 ${
+              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
+            <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`} />
             <Image
               src={slide.image}
               alt={slide.title}
@@ -121,55 +138,80 @@ export default function Home() {
               priority={index === 0}
             />
             <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
-              <div className="text-white max-w-2xl">
-                <p className="text-sm uppercase tracking-wider mb-2 text-yellow-400">{slide.subtitle}</p>
-                <h1 className="text-6xl md:text-7xl font-bold mb-6">{slide.title}</h1>
+              <div className="text-white max-w-3xl">
+                <div className="inline-block mb-4">
+                  <span className="bg-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg">
+                    {slide.badge}
+                  </span>
+                </div>
+                <p className="text-lg uppercase tracking-widest mb-3 text-amber-300 font-semibold">{slide.subtitle}</p>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                  {slide.title}
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 text-gray-200 font-light">{slide.description}</p>
                 <Link href="/produits">
-                  <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-10 rounded-full transition transform hover:scale-105">
-                    {slide.buttonText}
-                  </button>
+           
+           
                 </Link>
               </div>
             </div>
           </div>
         ))}
         
-        {/* Slider Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 rounded-full transition group"
+        >
+          <ChevronLeft className="w-8 h-8 text-white" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 rounded-full transition group"
+        >
+          <ChevronRight className="w-8 h-8 text-white" />
+        </button>
+        
+        {/* Slider Indicators */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-3">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition ${
-                index === currentSlide ? 'bg-yellow-500 w-8' : 'bg-white/50'
+              className={`h-1 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-yellow-500 w-12' : 'bg-white/50 w-8 hover:bg-white/70'
               }`}
             />
           ))}
         </div>
       </section>
 
+
+     
       {/* New Arrivals */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-12">
             <div>
-              <h2 className="text-3xl font-bold">New Arrivals</h2>
-              <p className="text-gray-600 mt-1">Nouveaux smartphones premium et professionnels</p>
+              <div className="flex items-center gap-3 mb-2">
+                <Star className="w-8 h-8 text-amber-500 fill-amber-500" />
+                <h2 className="text-4xl font-black">Nouveautés</h2>
+              </div>
+              <p className="text-gray-600 text-lg">Les derniers produits qui vont changer votre quotidien</p>
             </div>
-            <div className="flex gap-4">
-              <Link href="/produits" className="text-sm font-semibold hover:text-yellow-600">New Arrivals</Link>
-              <Link href="/produits?filter=best" className="text-sm text-gray-600 hover:text-yellow-600">Best Sellers</Link>
-            </div>
+            <Link href="/produits" className="hidden md:block bg-amber-600 text-white px-6 py-3 rounded-full font-bold hover:bg-amber-700 transition shadow-lg">
+              Voir Tout →
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {nouveautes.map((produit) => (
-              <Link key={produit.id} href={`/produits/${produit.id}`}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition group">
+              <div key={produit.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-100">
+                <div className="relative">
                   {produit.badge && (
-                    <div className="absolute z-10 mt-4 ml-4">
-                      <span className={`px-3 py-1 text-xs font-bold rounded-full ${
-                        produit.badge === 'Best Seller' ? 'bg-yellow-500 text-black' :
+                    <div className="absolute z-10 top-4 left-4">
+                      <span className={`px-4 py-2 text-xs font-bold rounded-full shadow-lg ${
+                        produit.badge === 'Best Seller' ? 'bg-amber-500 text-white' :
                         produit.badge === 'Nouveau' ? 'bg-blue-500 text-white' :
                         'bg-red-500 text-white'
                       }`}>
@@ -177,73 +219,77 @@ export default function Home() {
                       </span>
                     </div>
                   )}
-                  <div className="relative h-64 bg-gray-100">
+                  <div className="relative h-72 bg-gradient-to-br from-gray-50 to-gray-100">
                     <Image
                       src={produit.image}
                       alt={produit.nom}
                       fill
-                      className="object-contain p-4 group-hover:scale-110 transition duration-300"
+                      className="object-contain p-6 group-hover:scale-110 transition duration-500"
                     />
                   </div>
-                  <div className="p-4">
-                    <p className="text-xs text-gray-500 font-semibold mb-1">{produit.marque}</p>
-                    <h3 className="font-bold text-lg mb-2">{produit.nom}</h3>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        {produit.ancienPrix && (
-                          <p className="text-sm text-red-500 line-through font-semibold">{produit.ancienPrix.toLocaleString()} CFA</p>
-                        )}
-                        <p className="text-xl font-bold text-black">{produit.prix.toLocaleString()} CFA</p>
-                      </div>
-                      <div className="flex gap-1">
-                        {produit.colors.map((color, idx) => (
-                          <div
-                            key={idx}
-                            className="w-5 h-5 rounded-full border-2 border-gray-300"
-                            style={{ backgroundColor: color }}
-                          />
-                        ))}
-                      </div>
-                    </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-xs text-amber-600 font-bold mb-2 uppercase tracking-wider">{produit.marque}</p>
+                  <h3 className="font-bold text-xl mb-3">{produit.nom}</h3>
+                  <div className="flex items-center gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    ))}
+                    <span className="text-sm text-gray-500 ml-1">(4.8)</span>
+                  </div>
+                  <div>
+                    {produit.ancienPrix && (
+                      <p className="text-sm text-gray-400 line-through font-semibold">{produit.ancienPrix.toLocaleString()} FCFA</p>
+                    )}
+                    <p className="text-2xl font-black text-black">{produit.prix.toLocaleString()} <span className="text-sm font-normal">FCFA</span></p>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Barre de message défilant */}
-      <section className="bg-gray-200 py-4 overflow-hidden">
-        <div className="relative">
-          <div className="animate-scroll whitespace-nowrap">
-            <span className="inline-block text-black font-bold text-lg px-8">
-              🎉 Bienvenue chez best life - Votre partenaire de confiance pour les smartphones premium, l'électronique moderne et l'immobilier de qualité ! |  Profitez de nos offres exceptionnelles sur toute notre gamme de produits | 🚚 Livraison gratuite partout au Cameroun | 🔒 Paiement 100% sécurisé | 💳 Facilités de paiement disponibles |  best life - Change Life, Change Future 
-            </span>
-            <span className="inline-block text-black font-bold text-lg px-8">
-              🎉 Bienvenue chez best life - Votre partenaire de confiance pour les smartphones premium, l'électronique moderne et l'immobilier de qualité ! | Profitez de nos offres exceptionnelles sur toute notre gamme de produits | 🚚 Livraison gratuite partout au Cameroun | 🔒 Paiement 100% sécurisé | 💳 Facilités de paiement disponibles |  best life - Change Life, Change Future 
-            </span>
+     
+
+      {/* Special Offers Banner */}
+      <section className="py-16 bg-gradient-to-r from-yellow-700 via-amber-600 to-amber-700">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-black">
+            <h2 className="text-5xl font-black mb-4">🔥 OFFRES FLASH 🔥</h2>
+            <p className="text-2xl font-bold mb-6">Jusqu'à -10% sur une sélection de produits</p>
+            <Link href="/produits">
+              <button className="bg-white text-amber-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
+                J'en profite maintenant
+              </button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Collections */}
-      <section className="py-16">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black mb-3">Collections Spéciales</h2>
+            <p className="text-gray-600 text-lg">Des sélections soigneusement choisies pour vous</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {collections.map((collection, index) => (
               <Link key={index} href={collection.link}>
-                <div className="relative h-80 rounded-lg overflow-hidden group cursor-pointer">
+                <div className="relative h-96 rounded-3xl overflow-hidden group cursor-pointer shadow-xl">
                   <Image
                     src={collection.image}
                     alt={collection.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition duration-500"
+                    className="object-cover group-hover:scale-110 transition duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2">{collection.title}</h3>
-                    <span className="text-yellow-400 font-semibold">Explorer →</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute bottom-8 left-8 text-white">
+                    <h3 className="text-3xl font-black mb-3">{collection.title}</h3>
+                    <span className="inline-block bg-amber-500 text-white px-6 py-2 rounded-full font-bold group-hover:bg-amber-600 transition shadow-lg">
+                      Explorer →
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -252,28 +298,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 bg-black text-white">
+      {/* Why Choose Us */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-5xl mb-4">🚚</div>
-              <h3 className="text-xl font-bold mb-2 text-yellow-400">Livraison Gratuite</h3>
-              <p className="text-gray-400">Sur toutes les commandes</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black mb-4">Pourquoi Choisir Best Life ?</h2>
+            <p className="text-gray-400 text-lg">Votre satisfaction est notre priorité</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">🚚</div>
+              <h3 className="text-xl font-bold mb-3 text-amber-400">Livraison Express</h3>
+              <p className="text-gray-400">Livraison rapide partout au Cameroun</p>
             </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">🔒</div>
-              <h3 className="text-xl font-bold mb-2 text-yellow-400">Paiement Sécurisé</h3>
-              <p className="text-gray-400">Transactions 100% sécurisées</p>
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">🔒</div>
+              <h3 className="text-xl font-bold mb-3 text-amber-400">100% Sécurisé</h3>
+              <p className="text-gray-400">Paiement et données protégés</p>
             </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">↩️</div>
-              <h3 className="text-xl font-bold mb-2 text-yellow-400">Retour Gratuit</h3>
-              <p className="text-gray-400">Sous 30 jours</p>
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">✓</div>
+              <h3 className="text-xl font-bold mb-3 text-amber-400">Produits Authentiques</h3>
+              <p className="text-gray-400">Garantie d'authenticité à 100%</p>
+            </div>
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">💬</div>
+              <h3 className="text-xl font-bold mb-3 text-amber-400">Support 24/7</h3>
+              <p className="text-gray-400">Service client toujours disponible</p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Categories Showcase */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold mb-3">Explorez Nos Catégories</h2>
+            <p className="text-gray-600 text-lg">Trouvez exactement ce dont vous avez besoin</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { name: 'Smartphones', icon: '📱', color: 'from-blue-500 to-blue-600' },
+              { name: 'Électronique', icon: '💻', color: 'from-purple-500 to-purple-600' },
+              { name: 'Bien-être', icon: '🌿', color: 'from-green-500 to-green-600' },
+              { name: 'Meubles', icon: '🛋️', color: 'from-orange-500 to-orange-600' },
+              { name: 'Lifestyle', icon: '✨', color: 'from-pink-500 to-pink-600' }
+            ].map((cat, idx) => (
+              <Link key={idx} href="/produits">
+                <div className={`bg-gradient-to-br ${cat.color} rounded-2xl p-6 text-center text-white hover:scale-105 transition transform cursor-pointer shadow-lg`}>
+                  <div className="text-5xl mb-3">{cat.icon}</div>
+                  <h3 className="font-bold text-lg">{cat.name}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

@@ -48,13 +48,17 @@ export default function ProduitsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gray-400 text-white py-16">
+      <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-bold mb-2">Nos Produits</h1>
-          <p className="text-yellow-400 text-lg">
+          <p className="text-amber-100 text-lg">
             {categorieSelectionnee === 'smartphone' && 'Découvrez notre sélection de smartphones premium'}
-            {categorieSelectionnee === 'electronique' && 'Explorez nos produits électroniques'}
+            {categorieSelectionnee === 'electronique' && 'Explorez nos appareils électroniques,Distributeur d’appareils utiles pour le confort quotidien '}
             {categorieSelectionnee === 'immobilier' && 'Trouvez votre bien immobilier idéal'}
+            {categorieSelectionnee === 'bien-etre' && 'Nous proposons des produits naturels pour aider à renforcer la santé, réduire le stress, améliorer le sommeil et favoriser un mode de vie équilibré'}
+            {categorieSelectionnee === 'meubles' && 'Explorez nos Meubles fonctionnels et design pour la maison ou le bureau'}
+            {categorieSelectionnee === 'lifestyle' && 'Trouvez votre confort et style de vie idéal'}
+            {categorieSelectionnee === 'electromenagers' && 'Découvrez nos électroménagers de qualité'}
             {categorieSelectionnee === 'tous' && 'Découvrez tous nos produits'}
           </p>
         </div>
@@ -74,41 +78,81 @@ export default function ProduitsPage() {
                     onClick={() => { setCategorieSelectionnee('tous'); setSousCategorie(''); }}
                     className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
                       categorieSelectionnee === 'tous' 
-                        ? 'bg-yellow-500 text-black' 
+                        ? 'bg-gray-700 text-white' 
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                     }`}
                   >
-                    {/* 📦 Tous les produits */}
+                    Tous les produits
                   </button>
                   <button
                     onClick={() => { setCategorieSelectionnee('smartphone'); setSousCategorie(''); }}
                     className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
                       categorieSelectionnee === 'smartphone' 
-                        ? 'bg-yellow-500 text-black' 
+                        ? 'bg-gray-700 text-white' 
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                     }`}
                   >
-                     Smartphones
+                    Smartphones
                   </button>
                   <button
                     onClick={() => { setCategorieSelectionnee('electronique'); setSousCategorie(''); }}
                     className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
                       categorieSelectionnee === 'electronique' 
-                        ? 'bg-yellow-500 text-black' 
+                        ? 'bg-gray-700 text-white' 
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                     }`}
                   >
-                    Électronique
+                    Appareils électroniques
                   </button>
                   <button
                     onClick={() => { setCategorieSelectionnee('immobilier'); setSousCategorie(''); }}
                     className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
                       categorieSelectionnee === 'immobilier' 
-                        ? 'bg-yellow-500 text-black' 
+                        ? 'bg-gray-700 text-white' 
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                     }`}
                   >
                     Immobilier
+                  </button>
+                  <button
+                    onClick={() => { setCategorieSelectionnee('bien-etre'); setSousCategorie(''); }}
+                    className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
+                      categorieSelectionnee === 'bien-etre' 
+                        ? 'bg-gray-700 text-white' 
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    Bien-être & Santé naturelle
+                  </button>
+                  <button
+                    onClick={() => { setCategorieSelectionnee('meubles'); setSousCategorie(''); }}
+                    className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
+                      categorieSelectionnee === 'meubles' 
+                        ? 'bg-gray-700 text-white' 
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    Meubles & Décoration intérieure
+                  </button>
+                  <button
+                    onClick={() => { setCategorieSelectionnee('lifestyle'); setSousCategorie(''); }}
+                    className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
+                      categorieSelectionnee === 'lifestyle' 
+                        ? 'bg-gray-700 text-white' 
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    Lifestyle & Confort
+                  </button>
+                  <button
+                    onClick={() => { setCategorieSelectionnee('electromenagers'); setSousCategorie(''); }}
+                    className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition ${
+                      categorieSelectionnee === 'electromenagers' 
+                        ? 'bg-gray-700 text-white' 
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    Électroménagers
                   </button>
                 </div>
               </div>
@@ -120,7 +164,7 @@ export default function ProduitsPage() {
                   <select 
                     value={sousCategorie} 
                     onChange={(e) => setSousCategorie(e.target.value)}
-                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                    className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                   >
                     <option value="">Toutes les marques</option>
                     {marquesSmartphone.map(m => <option key={m} value={m}>{m}</option>)}
@@ -130,7 +174,7 @@ export default function ProduitsPage() {
 
               <button 
                 onClick={() => { setCategorieSelectionnee('tous'); setSousCategorie(''); }}
-                className="w-full mt-6 bg-black hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition"
+                className="w-full mt-6 bg-yellow-700 hover:bg-yellow-800 text-white py-3 rounded-lg font-semibold transition shadow-md"
               >
                 Réinitialiser
               </button>
@@ -140,7 +184,7 @@ export default function ProduitsPage() {
           <main className="flex-1">
             {loading ? (
               <div className="flex items-center justify-center h-64">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
               </div>
             ) : (
               <>
@@ -161,7 +205,7 @@ export default function ProduitsPage() {
                           />
                         </div>
                     <div className="p-6">
-                      <div className="text-xs text-yellow-600 font-bold mb-1 uppercase">{produit.marque}</div>
+                      <div className="text-xs text-amber-600 font-bold mb-1 uppercase">{produit.marque}</div>
                       <h3 className="text-xl font-bold mb-2 text-gray-900">{produit.nom}</h3>
                       <p className="text-gray-600 text-sm mb-4">{produit.description}</p>
                       <div className="flex items-center justify-between">
@@ -169,7 +213,7 @@ export default function ProduitsPage() {
                           {produit.ancienPrix && (
                             <span className="text-sm text-red-500 line-through font-semibold block">{produit.ancienPrix.toLocaleString()} CFA</span>
                           )}
-                          <span className="text-3xl font-bold text-black">{produit.prix.toLocaleString()} CFA</span>
+                          <span className="text-3xl font-bold text-amber-600">{produit.prix.toLocaleString()} CFA</span>
                         </div>
                         <span className="text-sm text-green-600 font-semibold">{produit.stock} en stock</span>
                       </div>

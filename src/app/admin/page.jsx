@@ -47,7 +47,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-600"></div>
       </div>
     );
   }
@@ -76,28 +76,28 @@ export default function AdminDashboard() {
       title: 'Utilisateurs',
       value: stats?.totalUsers || 0,
       icon: Users,
-      color: 'bg-blue-500',
+      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
       textColor: 'text-blue-600'
     },
     {
       title: 'Produits',
       value: stats?.totalProducts || 0,
       icon: Package,
-      color: 'bg-green-500',
+      color: 'bg-gradient-to-br from-green-500 to-green-600',
       textColor: 'text-green-600'
     },
     {
       title: 'Commandes',
       value: stats?.totalOrders || 0,
       icon: ShoppingCart,
-      color: 'bg-purple-500',
+      color: 'bg-gradient-to-br from-purple-500 to-purple-600',
       textColor: 'text-purple-600'
     },
     {
       title: 'Revenu Total',
       value: `${stats?.totalRevenue?.toLocaleString() || 0} FCFA`,
       icon: DollarSign,
-      color: 'bg-yellow-500',
+      color: 'bg-gradient-to-br from-yellow-500 to-yellow-600',
       textColor: 'text-yellow-600'
     }
   ];
@@ -111,13 +111,13 @@ export default function AdminDashboard() {
         {statCards.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-transparent hover:border-yellow-500">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-500 text-sm font-medium">{stat.title}</p>
                   <p className="text-2xl font-bold text-gray-900 mt-2">{stat.value}</p>
                 </div>
-                <div className={`${stat.color} p-3 rounded-lg`}>
+                <div className={`${stat.color} p-3 rounded-xl shadow-lg`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -128,13 +128,13 @@ export default function AdminDashboard() {
 
       {/* Orders by Status */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Commandes par statut</h2>
           <div className="space-y-3">
             {stats?.ordersByStatus?.map((item, index) => (
               <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                 <span className="font-medium text-gray-700">{item._id}</span>
-                <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-4 py-1.5 rounded-full text-sm font-bold shadow-md">
                   {item.count}
                 </span>
               </div>
@@ -142,13 +142,13 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Produits par catégorie</h2>
           <div className="space-y-3">
             {stats?.productsByCategory?.map((item, index) => (
               <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                 <span className="font-medium text-gray-700 capitalize">{item._id}</span>
-                <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-md">
                   {item.count}
                 </span>
               </div>
@@ -159,14 +159,14 @@ export default function AdminDashboard() {
 
       {/* Low Stock Alert */}
       {stats?.lowStockProducts && stats.lowStockProducts.length > 0 && (
-        <div className="bg-red-50 border-l-4 border-red-500 rounded-lg shadow-md p-6 mb-8">
+        <div className="bg-red-50 border-l-4 border-red-500 rounded-xl shadow-md p-6 mb-8">
           <div className="flex items-center mb-4">
             <AlertTriangle className="w-6 h-6 text-red-600 mr-2" />
             <h2 className="text-xl font-bold text-red-900">Alerte Stock Faible</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {stats.lowStockProducts.map((product) => (
-              <div key={product._id} className="bg-white p-4 rounded-lg">
+              <div key={product._id} className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition">
                 <p className="font-semibold text-gray-900">{product.nom}</p>
                 <p className="text-sm text-gray-600">{product.marque}</p>
                 <p className="text-red-600 font-bold mt-2">Stock: {product.stock}</p>
@@ -177,7 +177,7 @@ export default function AdminDashboard() {
       )}
 
       {/* Recent Orders */}
-      <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6">
         <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">Commandes récentes</h2>
         <div className="overflow-x-auto -mx-4 sm:mx-0">
           <table className="min-w-full divide-y divide-gray-200">

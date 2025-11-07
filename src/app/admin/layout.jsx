@@ -61,13 +61,13 @@ export default function AdminLayout({ children }) {
 
       {/* Sidebar */}
       <aside className={`
-        w-56 bg-gray-900 text-white shadow-lg flex flex-col
+        w-64 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white shadow-2xl flex flex-col
         fixed lg:relative inset-y-0 left-0 z-40
         transform transition-transform duration-300 ease-in-out
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         {/* Logo Section */}
-        <div className="p-4 border-b border-gray-700">
+        <div className="p-6 border-b border-yellow-600/30 bg-black/30">
           <Link href="/" className="flex justify-center hover:opacity-80 transition">
             <Image 
               src="/logo1.png" 
@@ -81,7 +81,7 @@ export default function AdminLayout({ children }) {
         </div>
 
         {/* Navigation Menu */}
-        <nav className="flex-1 p-3 overflow-y-auto">
+        <nav className="flex-1 p-4 overflow-y-auto space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
@@ -91,13 +91,15 @@ export default function AdminLayout({ children }) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center space-x-3 px-3 py-2.5 rounded-lg mb-1.5 transition text-sm ${
+                className={`flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 ${
                   isActive
-                    ? 'bg-yellow-500 text-black font-semibold'
-                    : 'text-gray-300 hover:bg-gray-800'
+                    ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold shadow-lg transform scale-105'
+                    : 'text-gray-300 hover:bg-gray-800/50 hover:text-white hover:translate-x-1'
                 }`}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
+                <Icon className={`w-5 h-5 flex-shrink-0 ${
+                  isActive ? 'animate-pulse' : ''
+                }`} />
                 <span>{item.label}</span>
               </Link>
             );
@@ -105,29 +107,29 @@ export default function AdminLayout({ children }) {
         </nav>
 
         {/* User Profile & Actions */}
-        <div className="p-3 border-t border-gray-700 space-y-2">
-          <div className="flex items-center space-x-2 px-2 py-1.5">
-            <div className="w-9 h-9 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-black font-bold text-xs">
+        <div className="p-4 border-t border-yellow-600/30 bg-black/30 space-y-3">
+          <div className="flex items-center space-x-3 px-3 py-2.5 bg-gray-800/50 rounded-xl">
+            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+              <span className="text-black font-bold text-sm">
                 {utilisateur.prenom[0]}{utilisateur.nom[0]}
               </span>
             </div>
             <div className="flex-1 overflow-hidden">
-              <p className="text-xs font-semibold text-white truncate">
+              <p className="text-sm font-bold text-white truncate">
                 {utilisateur.prenom} {utilisateur.nom}
               </p>
-              <p className="text-[10px] text-gray-400 truncate">{utilisateur.email}</p>
+              <p className="text-xs text-yellow-400 truncate">{utilisateur.email}</p>
             </div>
           </div>
           
           <Link
             href="/"
-            className="flex items-center space-x-2 px-3 py-2 text-gray-300 hover:bg-gray-800 rounded-lg transition text-sm"
+            className="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-800/50 hover:text-white rounded-xl transition-all duration-200 hover:translate-x-1"
           >
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
-            <span className="text-xs">Retour au site</span>
+            <span className="text-sm font-medium">Retour au site</span>
           </Link>
 
           <button
@@ -135,10 +137,10 @@ export default function AdminLayout({ children }) {
               deconnexion();
               router.push('/');
             }}
-            className="flex items-center space-x-2 w-full px-3 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition text-sm"
+            className="flex items-center space-x-3 w-full px-4 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            <LogOut className="w-4 h-4 flex-shrink-0" />
-            <span className="text-xs">Déconnexion</span>
+            <LogOut className="w-5 h-5 flex-shrink-0" />
+            <span className="text-sm font-bold">Déconnexion</span>
           </button>
         </div>
       </aside>
