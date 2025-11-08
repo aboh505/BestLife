@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <h1 className="text-4xl font-bold mb-8 text-center">Contactez-nous</h1>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                       </svg>
@@ -50,7 +50,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
@@ -61,7 +61,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
@@ -72,8 +72,8 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-8 p-6 bg-yellow-50 rounded-2xl border-2 border-yellow-200">
-                  <p className="text-sm text-gray-700"><span className="font-bold">Réponse rapide :</span> Toutes les demandes reçoivent une réponse sous 24 heures.</p>
+                <div className="mt-8 p-6 bg-yellow-600 rounded-2xl border-2 border-yellow-200">
+                  <p className="text-sm text-white"><span className="font-bold">Réponse rapide :</span> Toutes les demandes reçoivent une réponse sous 24 heures.</p>
                 </div>
                 
               </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <textarea required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} rows={6}
                     className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 resize-none" placeholder="Votre message..." />
                 </div>
-                <button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 rounded-lg transition transform hover:scale-105">
+                <button type="submit" className="w-full bg-yellow-600 hover:bg-yellow-700 text-black font-bold py-4 rounded-lg transition transform hover:scale-105">
                   Envoyer le message →
                 </button>
               </form>

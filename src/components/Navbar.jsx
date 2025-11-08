@@ -95,7 +95,7 @@ export default function Navbar() {
                 </Link>
                 <button
                   onClick={deconnexion}
-                  className="bg-black hover:bg-red-800 text-white px-4 py-2 rounded-lg transition font-medium">
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition font-medium">
                 
                   Déconnexion
                 </button>
@@ -206,7 +206,7 @@ export default function Navbar() {
                         deconnexion();
                         fermerMenu();
                       }}
-                      className="w-full text-left bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition mt-2 font-medium"
+                      className="w-full text-left bg-red-100 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition mt-2 font-medium"
                     >
                       Déconnexion
                     </button>

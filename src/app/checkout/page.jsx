@@ -22,7 +22,6 @@ export default function CheckoutPage() {
     typeLivraison: 'domicile',
     ville: 'Douala',
     autreVille: '',
-    modePaiement: 'mobile-money',
     adresseFacturation: 'identique',
     emailOffres: false,
     sauvegarderCoordonnees: false
@@ -94,7 +93,7 @@ export default function CheckoutPage() {
         <div className="text-center">
           <div className="text-8xl mb-6">🛒</div>
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Votre panier est vide</h2>
-          <Link href="/produits" className="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition shadow-lg">
+          <Link href="/produits" className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 px-10 rounded-full transition shadow-lg">
             Voir les produits
           </Link>
         </div>
@@ -369,34 +368,6 @@ export default function CheckoutPage() {
                     )}
                   </div>
 
-                  {/* Paiement */}
-                  <div className="mb-8">
-                    <h2 className="text-2xl font-bold mb-6">Paiement</h2>
-                    <div className="space-y-3">
-                      <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-amber-500 transition">
-                        <input
-                          type="radio"
-                          name="modePaiement"
-                          value="mobile-money"
-                          checked={formData.modePaiement === 'mobile-money'}
-                          onChange={handleChange}
-                          className="w-5 h-5 text-amber-500"
-                        />
-                        <span className="ml-3 font-semibold">Mobile Money (MTN/Orange)</span>
-                      </label>
-                      <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-amber-500 transition">
-                        <input
-                          type="radio"
-                          name="modePaiement"
-                          value="cash"
-                          checked={formData.modePaiement === 'cash'}
-                          onChange={handleChange}
-                          className="w-5 h-5 text-amber-500"
-                        />
-                        <span className="ml-3 font-semibold">Paiement à la livraison</span>
-                      </label>
-                    </div>
-                  </div>
 
                   {/* Adresse de facturation */}
                   <div className="mb-8">

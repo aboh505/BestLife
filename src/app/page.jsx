@@ -199,7 +199,7 @@ export default function Home() {
               </div>
               <p className="text-gray-600 text-lg">Les derniers produits qui vont changer votre quotidien</p>
             </div>
-            <Link href="/produits" className="hidden md:block bg-amber-600 text-white px-6 py-3 rounded-full font-bold hover:bg-amber-700 transition shadow-lg">
+            <Link href="/produits" className="hidden md:block bg-yellow-600 text-white px-6 py-3 rounded-full font-bold hover:bg-yellow-700 transition shadow-lg">
               Voir Tout →
             </Link>
           </div>
@@ -231,12 +231,7 @@ export default function Home() {
                 <div className="p-6">
                   <p className="text-xs text-amber-600 font-bold mb-2 uppercase tracking-wider">{produit.marque}</p>
                   <h3 className="font-bold text-xl mb-3">{produit.nom}</h3>
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                    ))}
-                    <span className="text-sm text-gray-500 ml-1">(4.8)</span>
-                  </div>
+                 
                   <div>
                     {produit.ancienPrix && (
                       <p className="text-sm text-gray-400 line-through font-semibold">{produit.ancienPrix.toLocaleString()} FCFA</p>
@@ -253,7 +248,7 @@ export default function Home() {
      
 
       {/* Special Offers Banner */}
-      <section className="py-16 bg-gradient-to-r from-yellow-700 via-amber-600 to-amber-700">
+      <section className="py-16 bg-gradient-to-r from-yellow-600 via-yellow-600 to-yellow-700">
         <div className="container mx-auto px-4">
           <div className="text-center text-black">
             <h2 className="text-5xl font-black mb-4">🔥 OFFRES FLASH 🔥</h2>
@@ -308,22 +303,22 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
               <div className="text-6xl mb-6">🚚</div>
-              <h3 className="text-xl font-bold mb-3 text-amber-400">Livraison Express</h3>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600">Livraison Express</h3>
               <p className="text-gray-400">Livraison rapide partout au Cameroun</p>
             </div>
             <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
               <div className="text-6xl mb-6">🔒</div>
-              <h3 className="text-xl font-bold mb-3 text-amber-400">100% Sécurisé</h3>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600">100% Sécurisé</h3>
               <p className="text-gray-400">Paiement et données protégés</p>
             </div>
             <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
               <div className="text-6xl mb-6">✓</div>
-              <h3 className="text-xl font-bold mb-3 text-amber-400">Produits Authentiques</h3>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600">Produits Authentiques</h3>
               <p className="text-gray-400">Garantie d'authenticité à 100%</p>
             </div>
             <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
               <div className="text-6xl mb-6">💬</div>
-              <h3 className="text-xl font-bold mb-3 text-amber-400">Support 24/7</h3>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600">Support 24/7</h3>
               <p className="text-gray-400">Service client toujours disponible</p>
             </div>
           </div>
@@ -337,13 +332,13 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-3">Explorez Nos Catégories</h2>
             <p className="text-gray-600 text-lg">Trouvez exactement ce dont vous avez besoin</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 ml-50 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
-              { name: 'Smartphones', icon: '📱', color: 'from-blue-500 to-blue-600' },
-              { name: 'Électronique', icon: '💻', color: 'from-purple-500 to-purple-600' },
-              { name: 'Bien-être', icon: '🌿', color: 'from-green-500 to-green-600' },
-              { name: 'Meubles', icon: '🛋️', color: 'from-orange-500 to-orange-600' },
-              { name: 'Lifestyle', icon: '✨', color: 'from-pink-500 to-pink-600' }
+              { name: 'Smartphones', icon: '📱', color: 'from-blue-300 to-blue-600' },
+              { name: 'Électronique', icon: '💻', color: 'from-purple-300 to-purple-600' },
+              { name: 'Bien-être', icon: '🌿', color: 'from-green-300 to-green-600' },
+              { name: 'Meubles', icon: '🛋️', color: 'from-orange-300 to-orange-600' },
+             
             ].map((cat, idx) => (
               <Link key={idx} href="/produits">
                 <div className={`bg-gradient-to-br ${cat.color} rounded-2xl p-6 text-center text-white hover:scale-105 transition transform cursor-pointer shadow-lg`}>
