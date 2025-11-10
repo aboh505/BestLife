@@ -382,8 +382,12 @@ export default function ProductsManagement() {
                       className="w-full border-2 border-gray-200 rounded-lg px-4 py-2"
                     >
                       <option value="smartphone">Smartphone</option>
-                      <option value="electronique">Électronique</option>
+                      <option value="electronique">Appareils électroniques</option>
                       <option value="immobilier">Immobilier</option>
+                      <option value="immobilier">Bien-être & Santé naturelle</option>
+                      <option value="immobilier">Meubles & Décoration intérieure</option>
+                      <option value="immobilier">Lifestyle & Confort</option>
+                      <option value="immobilier">Électroménagers</option>
                     </select>
                   </div>
                   <div>

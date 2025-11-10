@@ -48,7 +48,7 @@ export default function ProduitsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 text-white py-16">
+      <div className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-bold mb-2">Nos Produits</h1>
           <p className="text-amber-100 text-lg">
@@ -56,7 +56,7 @@ export default function ProduitsPage() {
             {categorieSelectionnee === 'electronique' && 'Explorez nos appareils électroniques,Distributeur d’appareils utiles pour le confort quotidien '}
             {categorieSelectionnee === 'immobilier' && 'Trouvez votre bien immobilier idéal'}
             {categorieSelectionnee === 'bien-etre' && 'Nous proposons des produits naturels pour aider à renforcer la santé, réduire le stress, améliorer le sommeil et favoriser un mode de vie équilibré'}
-            {categorieSelectionnee === 'meubles' && 'Explorez nos Meubles fonctionnels et design pour la maison ou le bureau'}
+            {categorieSelectionnee === 'meubles' && 'Explorez nos Meubles fonctionnels et design pour la maison ou de bureau'}
             {categorieSelectionnee === 'lifestyle' && 'Trouvez votre confort et style de vie idéal'}
             {categorieSelectionnee === 'electromenagers' && 'Découvrez nos électroménagers de qualité'}
             {categorieSelectionnee === 'tous' && 'Découvrez tous nos produits'}

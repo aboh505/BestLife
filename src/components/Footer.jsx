@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-white mt-auto border-t-4 border-amber-500">
+    <footer className="bg-gradient-to-br from-gray-900 to-black text-white mt-auto border-t-4 border-yellow-600">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
@@ -24,27 +24,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-amber-400">Navigation</h4>
+            <h4 className="font-bold mb-4 text-yellow-600">Navigation</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/" className="hover:text-amber-400 transition">Accueil</Link></li>
-              <li><Link href="/produits" className="hover:text-amber-400 transition">Produits</Link></li>
-              <li><Link href="/about" className="hover:text-amber-400 transition">A propos</Link></li>
-              <li><Link href="/contact" className="hover:text-amber-400 transition">Contact</Link></li>
+              <li><Link href="/" className="hover:text-yellow-600 transition">Accueil</Link></li>
+              <li><Link href="/produits" className="hover:text-yellow-600 transition">Produits</Link></li>
+              <li><Link href="/about" className="hover:text-yellow-600 transition">À propos</Link></li>
+              <li><Link href="/contact" className="hover:text-yellow-600 transition">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-amber-400">Liens utiles</h4>
+            <h4 className="font-bold mb-4 text-yellow-600">Liens utiles</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/profil" className="hover:text-amber-400 transition">Politique de confidentialité</Link></li>
-              <li><Link href="/commande" className="hover:text-amber-400 transition">Conditions d'utilisation</Link></li>
-              <li><Link href="/login" className="hover:text-amber-400 transition"> Mentions légales</Link></li>
-              <li><Link href="/faq" className="hover:text-amber-400 transition">FAQ</Link></li>
+              <li><Link href="/profil" className="hover:text-yellow-600 transition">Politique de confidentialité</Link></li>
+              <li><Link href="/commande" className="hover:text-yellow-600 transition">Conditions d'utilisation</Link></li>
+              <li><Link href="/login" className="hover:text-yellow-600 transition"> Mentions légales</Link></li>
+              <li><Link href="/faq" className="hover:text-yellow-600 transition">FAQ</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-amber-400">Contact</h4>
+            <h4 className="font-bold mb-4 text-yellow-600">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li>📞 +237 699 27 29 93</li>
               <li>📞 +237 2 42 21 30 28</li>

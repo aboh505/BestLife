@@ -16,12 +16,12 @@ export default function FAQPage() {
     {
       id: 2,
       question: "Quels sont les modes de paiement acceptés ?",
-      answer: "Nous acceptons les cartes de crédit (Visa, Mastercard, American Express), PayPal, et les virements bancaires. Tous les paiements sont sécurisés et cryptés."
+      answer: "Nous acceptons les cartes de crédit (Visa, Mastercard), PayPal, et les virements bancaires. Tous les paiements sont sécurisés et cryptés."
     },
     {
       id: 3,
       question: "Quels sont les délais de livraison ?",
-      answer: "La livraison standard prend généralement 2-3 jours ouvrables en France métropolitaine. La livraison express (24h) est également disponible moyennant un supplément."
+      answer: "La livraison standard prend généralement 2-3 jours. La livraison express (24h) est également disponible moyennant un supplément."
     },
     {
       id: 4,
@@ -31,7 +31,7 @@ export default function FAQPage() {
     {
       id: 5,
       question: "Quels sont les frais de livraison ?",
-      answer: "La livraison est GRATUITE pour toutes les commandes . Pour les DOM-TOM et l'international, des frais supplémentaires peuvent s'appliquer."
+      answer: "La livraison est GRATUITE pour toutes les commandes ."
     },
     {
       id: 6,
@@ -86,12 +86,12 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 py-20 overflow-hidden">
+      <div className="relative bg-gradient-to-r from-yellow-500 via-yellow-700 to-yellow-600 py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-black rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-black rounded-full blur-3xl"></div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container  mx-auto px-4 text-center relative z-10">
           <div className="inline-block bg-black/20 backdrop-blur-sm px-6 py-2 rounded-full text-black text-sm font-bold mb-6">
             SUPPORT
           </div>
@@ -145,7 +145,7 @@ export default function FAQPage() {
               QUESTIONS FRÉQUENTES
             </div>
           </div>
-          <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent flex-1"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1"></div>
         </div>
       </div>
 
@@ -190,27 +190,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-  <section className="py-20 bg-black text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <div className="text-yellow-400 text-5xl mb-4">🎯</div>
-              <h3 className="text-2xl font-bold mb-4">Notre Mission</h3>
-              <p className="text-gray-400">Rendre les smartphones premium accessibles à tous.</p>
-            </div>
-            <div>
-              <div className="text-yellow-400 text-5xl mb-4">👁️</div>
-              <h3 className="text-2xl font-bold mb-4">Notre Vision</h3>
-              <p className="text-gray-400">Devenir la référence pour l'achat de smartphones premium.</p>
-            </div>
-            <div>
-              <div className="text-yellow-400 text-5xl mb-4">💎</div>
-              <h3 className="text-2xl font-bold mb-4">Nos Valeurs</h3>
-              <p className="text-gray-400">Excellence, Innovation, Transparence et Satisfaction Client.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  
     </div>
   );
 }

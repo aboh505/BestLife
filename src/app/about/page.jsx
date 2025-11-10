@@ -20,9 +20,9 @@ export default function AboutPage() {
 
   const milestones = [
     { year: '2022', title: 'Lancement de BestLife', description: 'Début de notre aventure dans la vente de smartphones premium', color: 'bg-gray-900' },
-    { year: '2023', title: 'Expansion Nationale', description: 'Ouverture des boutiques physiques au Cameroun', color: 'bg-yellow-500' },
+    { year: '2023', title: 'Expansion Nationale', description: 'Ouverture des boutiques physiques au Cameroun', color: 'bg-yellow-600' },
     { year: '2024', title: 'Partenariats Premium', description: 'Partenariats officiels avec Apple, Samsung et Google', color: 'bg-gray-900' },
-    { year: '2025', title: 'Leader du Marché', description: 'N°1 de la vente de smartphones premium en ligne', color: 'bg-yellow-500' }
+    { year: '2025', title: 'Leader du Marché', description: 'N°1 de la vente de smartphones premium en ligne', color: 'bg-yellow-600' }
   ];
 
   return (

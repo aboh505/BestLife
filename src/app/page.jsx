@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Star, TrendingUp, Zap, Shield } from 'lucide
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const heroSlides = [
     {
       title: 'Nouvelle Collection 2025',
@@ -19,7 +19,7 @@ export default function Home() {
     },
     {
       title: 'Offres Exceptionnelles',
-      subtitle: 'JUSQU\'À -40% DE RÉDUCTION',
+      subtitle: 'JUSQU\'À -10% DE RÉDUCTION',
       description: 'Profitez de nos promotions sur une sélection de produits',
       image: '/hero2.jpg',
       badge: 'Promo',
@@ -37,47 +37,47 @@ export default function Home() {
       title: 'Bien-être & Confort',
       subtitle: 'MEUBLES & DÉCORATION',
       description: 'Transformez votre espace de vie',
-      image: '/col2.jpg',
+      image: '/s2.jpg',
       badge: 'Lifestyle',
       gradient: 'from-green-400/80 to-green-600/80'
     }
   ];
 
   const nouveautes = [
-    { 
-      id: 1, 
-      nom: 'iPhone 15 Pro', 
-      prix: 786350, 
+    {
+      id: 1,
+      nom: 'iPhone 15 Pro',
+      prix: 786350,
       ancienPrix: 920000,
       marque: 'APPLE',
       image: '/i1.jpg',
       badge: 'Best Seller',
       colors: ['#000000', '#FFFFFF', '#0000FF']
     },
-    { 
-      id: 2, 
-      nom: 'Galaxy S25 Ultra', 
-      prix: 852000, 
+    {
+      id: 2,
+      nom: 'Galaxy S25 Ultra',
+      prix: 852000,
       ancienPrix: 1050000,
       marque: 'SAMSUNG',
       image: '/s1.jpg',
       badge: 'Nouveau',
       colors: ['#000000', '#808080']
     },
-    { 
-      id: 3, 
-      nom: 'Pixel 8 Pro', 
-      prix: 655350, 
+    {
+      id: 3,
+      nom: 'Pixel 8 Pro',
+      prix: 655350,
       ancienPrix: 780000,
       marque: 'GOOGLE',
       image: '/p1.jpg',
       badge: 'Promo -15%',
       colors: ['#000000', '#FFFFFF', '#87CEEB']
     },
-    { 
-      id: 4, 
-      nom: 'OnePlus 12', 
-      prix: 524350, 
+    {
+      id: 4,
+      nom: 'OnePlus 12',
+      prix: 524350,
       ancienPrix: 650000,
       marque: 'ONEPLUS',
       image: '/o1.jpg',
@@ -86,18 +86,18 @@ export default function Home() {
   ];
 
   const collections = [
-    { 
-      title: 'Premium Collection', 
+    {
+      title: 'Premium Collection',
       image: '/e1.jpg',
       link: '/produits?filter=premium'
     },
-    { 
-      title: 'Gaming Phones', 
+    {
+      title: 'Gaming Phones',
       image: '/e2.jpg',
       link: '/produits?filter=gaming'
     },
-    { 
-      title: 'Budget Friendly', 
+    {
+      title: 'Budget Friendly',
       image: '/col1.jpg',
       link: '/produits?filter=budget'
     }
@@ -121,13 +121,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Carousel - Enhanced */}
-      <section className="relative h-[700px] bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+      <section className="relative h-[600px] bg-gradient-to-br from-gray-900 to-black overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1000 ${
-              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
+            className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+              }`}
           >
             <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`} />
             <Image
@@ -140,7 +139,7 @@ export default function Home() {
             <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
               <div className="text-white max-w-3xl">
                 <div className="inline-block mb-4">
-                  <span className="bg-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg">
+                  <span className="bg-yellow-600 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg">
                     {slide.badge}
                   </span>
                 </div>
@@ -150,14 +149,14 @@ export default function Home() {
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-gray-200 font-light">{slide.description}</p>
                 <Link href="/produits">
-           
-           
+
+
                 </Link>
               </div>
             </div>
           </div>
         ))}
-        
+
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
@@ -171,23 +170,22 @@ export default function Home() {
         >
           <ChevronRight className="w-8 h-8 text-white" />
         </button>
-        
+
         {/* Slider Indicators */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-3">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-1 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-yellow-500 w-12' : 'bg-white/50 w-8 hover:bg-white/70'
-              }`}
+              className={`h-1 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-yellow-500 w-12' : 'bg-white/50 w-8 hover:bg-white/70'
+                }`}
             />
           ))}
         </div>
       </section>
 
 
-     
+
       {/* New Arrivals */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -199,7 +197,7 @@ export default function Home() {
               </div>
               <p className="text-gray-600 text-lg">Les derniers produits qui vont changer votre quotidien</p>
             </div>
-            <Link href="/produits" className="hidden md:block bg-yellow-600 text-white px-6 py-3 rounded-full font-bold hover:bg-yellow-700 transition shadow-lg">
+            <Link href="/produits" className="hidden md:block bg-yellow-600 text-white px-6 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">
               Voir Tout →
             </Link>
           </div>
@@ -210,11 +208,10 @@ export default function Home() {
                 <div className="relative">
                   {produit.badge && (
                     <div className="absolute z-10 top-4 left-4">
-                      <span className={`px-4 py-2 text-xs font-bold rounded-full shadow-lg ${
-                        produit.badge === 'Best Seller' ? 'bg-amber-500 text-white' :
-                        produit.badge === 'Nouveau' ? 'bg-blue-500 text-white' :
-                        'bg-red-500 text-white'
-                      }`}>
+                      <span className={`px-4 py-2 text-xs font-bold rounded-full shadow-lg ${produit.badge === 'Best Seller' ? 'bg-amber-500 text-white' :
+                          produit.badge === 'Nouveau' ? 'bg-blue-500 text-white' :
+                            'bg-red-500 text-white'
+                        }`}>
                         {produit.badge}
                       </span>
                     </div>
@@ -231,7 +228,7 @@ export default function Home() {
                 <div className="p-6">
                   <p className="text-xs text-amber-600 font-bold mb-2 uppercase tracking-wider">{produit.marque}</p>
                   <h3 className="font-bold text-xl mb-3">{produit.nom}</h3>
-                 
+
                   <div>
                     {produit.ancienPrix && (
                       <p className="text-sm text-gray-400 line-through font-semibold">{produit.ancienPrix.toLocaleString()} FCFA</p>
@@ -245,7 +242,7 @@ export default function Home() {
         </div>
       </section>
 
-     
+
 
       {/* Special Offers Banner */}
       <section className="py-16 bg-gradient-to-r from-yellow-600 via-yellow-600 to-yellow-700">
@@ -253,10 +250,8 @@ export default function Home() {
           <div className="text-center text-black">
             <h2 className="text-5xl font-black mb-4">🔥 OFFRES FLASH 🔥</h2>
             <p className="text-2xl font-bold mb-6">Jusqu'à -10% sur une sélection de produits</p>
-            <Link href="/produits">
-              <button className="bg-white text-amber-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
-                J'en profite maintenant
-              </button>
+            <Link className="bg-white text-amber-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-xl" href="/produits">
+              J'en profite maintenant
             </Link>
           </div>
         </div>
@@ -294,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-gray-800 via-black to-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black mb-4">Pourquoi Choisir Best Life ?</h2>
@@ -332,13 +327,13 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-3">Explorez Nos Catégories</h2>
             <p className="text-gray-600 text-lg">Trouvez exactement ce dont vous avez besoin</p>
           </div>
-          <div className="grid grid-cols-2 ml-50 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 ml-50 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {[
               { name: 'Smartphones', icon: '📱', color: 'from-blue-300 to-blue-600' },
               { name: 'Électronique', icon: '💻', color: 'from-purple-300 to-purple-600' },
               { name: 'Bien-être', icon: '🌿', color: 'from-green-300 to-green-600' },
               { name: 'Meubles', icon: '🛋️', color: 'from-orange-300 to-orange-600' },
-             
+
             ].map((cat, idx) => (
               <Link key={idx} href="/produits">
                 <div className={`bg-gradient-to-br ${cat.color} rounded-2xl p-6 text-center text-white hover:scale-105 transition transform cursor-pointer shadow-lg`}>
@@ -353,4 +348,6 @@ export default function Home() {
 
     </div>
   );
+
+  
 }

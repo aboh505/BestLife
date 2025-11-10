@@ -19,7 +19,7 @@ export default function Navbar() {
   const fermerMenu = () => setMenuOuvert(false);
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-amber-500">
+    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-yellow-600">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
@@ -206,14 +206,14 @@ export default function Navbar() {
                         deconnexion();
                         fermerMenu();
                       }}
-                      className="w-full text-left bg-red-100 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition mt-2 font-medium"
+                      className="w-full text-left bg-red-500 hover:bg-red-500 text-white px-4 py-2 rounded-lg transition mt-2 font-medium"
                     >
                       Déconnexion
                     </button>
                   </>
                 ) : (
                   <Link href="/register" onClick={fermerMenu}>
-                    <button className="w-full bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg transition font-medium">
+                    <button className="w-full bg-yellow-600 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition font-medium">
                       Inscription
                     </button>
                   </Link>
