@@ -48,7 +48,7 @@ export default function ProduitsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white py-16">
+      <div className="bg-gradient-to-r from-gray-800 to-gray-700 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-bold mb-2">Nos Produits</h1>
           <p className="text-amber-100 text-lg">
@@ -174,7 +174,7 @@ export default function ProduitsPage() {
 
               <button 
                 onClick={() => { setCategorieSelectionnee('tous'); setSousCategorie(''); }}
-                className="w-full mt-6 bg-yellow-700 hover:bg-yellow-800 text-white py-3 rounded-lg font-semibold transition shadow-md"
+                className="w-full mt-6 bg-yellow-700 hover:bg-yellow-700 text-white py-3 rounded-lg font-semibold transition shadow-md"
               >
                 Réinitialiser
               </button>

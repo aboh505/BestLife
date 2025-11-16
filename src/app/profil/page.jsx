@@ -22,16 +22,16 @@ export default function ProfilPage() {
       <div className="bg-black text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-bold mb-2">Mon Profil</h1>
-          <p className="text-yellow-400 text-lg">Gérez vos informations personnelles</p>
+          <p className="text-yellow-600 text-lg">Gérez vos informations personnelles</p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="grid md:grid-cols-3 gap-6">
           <div className="md:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-yellow-500">
+            <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-yellow-600">
               <div className="text-center mb-6">
-                <div className="w-24 h-24 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-24 h-24 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-4xl text-black font-bold">{utilisateur.prenom[0]}{utilisateur.nom[0]}</span>
                 </div>
                 <h2 className="text-xl font-bold">{utilisateur.prenom} {utilisateur.nom}</h2>
@@ -39,13 +39,13 @@ export default function ProfilPage() {
               </div>
               <div className="space-y-2">
                 <Link href="/profil" className="block px-4 py-3 bg-yellow-50 text-yellow-700 rounded-lg font-semibold">
-                  📋 Informations
+                  Informations
                 </Link>
                 <Link href="/commande" className="block px-4 py-3 hover:bg-gray-50 rounded-lg font-semibold transition">
-                  📦 Mes commandes
+                   Mes commandes
                 </Link>
                 <button onClick={deconnexion} className="w-full text-left px-4 py-3 hover:bg-red-50 text-red-600 rounded-lg font-semibold transition">
-                  🚪 Déconnexion
+                   Déconnexion
                 </button>
               </div>
             </div>
@@ -100,10 +100,10 @@ export default function ProfilPage() {
               <div className="mt-8 pt-6 border-t">
                 <h3 className="text-lg font-bold mb-4">Actions rapides</h3>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <Link href="/commande" className="block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg text-center transition">
+                  <Link href="/commande" className="block bg-yellow-600 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg text-center transition">
                     Voir mes commandes
                   </Link>
-                  <Link href="/produits" className="block bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg text-center transition">
+                  <Link href="/produits" className="block bg-black text-white font-bold py-3 px-6 rounded-lg text-center transition">
                     Continuer mes achats
                   </Link>
                 </div>

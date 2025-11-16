@@ -103,14 +103,32 @@ export default function DetailProduitPage() {
                   {produit.stock} en stock
                 </span>
               </div>
-              <p className="text-gray-700 mb-6">{produit.descriptionLongue}</p>
+              <p className="text-gray-700 mb-6">{produit.description}</p>
+
+              {/* Section Garanties */}
+              <div className="mb-6 bg-gray-50 rounded-lg p-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="flex items-center space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-sm font-semibold text-gray-700">Livraison gratuite</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-sm font-semibold text-gray-700">Paiement à la livraison</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-green-600 text-xl">✓</span>
+                    <span className="text-sm font-semibold text-gray-700">Garantie 100% Satisfait</span>
+                  </div>
+                </div>
+              </div>
 
               <div className="mb-6">
                 <h3 className="font-bold text-lg mb-3">Caractéristiques principales</h3>
                 <ul className="space-y-2">
-                  {produit.caracteristiques.map((carac, index) => (
+                  {produit.caracteristiques && produit.caracteristiques.map((carac, index) => (
                     <li key={index} className="flex items-center text-gray-700">
-                      <span className="text-blue-600 mr-2">✓</span>{carac}
+                      <span className="text-green-600 mr-2">✓</span>{carac}
                     </li>
                   ))}
                 </ul>

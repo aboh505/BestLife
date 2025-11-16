@@ -37,39 +37,39 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/' ? 'text-amber-600 font-bold' : ''}`}
+              className={`text-gray-800 hover:text-yellow-600 transition font-medium ${pathname === '/' ? 'text-amber-600 font-bold' : ''}`}
             >
               Accueil
             </Link>
             <Link
               href="/about"
-              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/about' ? 'text-amber-600 font-bold' : ''}`}
+              className={`text-gray-800 hover:text-yellow-600 transition font-medium ${pathname === '/about' ? 'text-amber-600 font-bold' : ''}`}
             >
               À propos
             </Link>
             <Link
               href="/produits"
-              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/produits' ? 'text-amber-600 font-bold' : ''}`}
+              className={`text-gray-800 hover:text-yellow-600 transition font-medium ${pathname === '/produits' ? 'text-amber-600 font-bold' : ''}`}
             >
               Produits
             </Link>
             
             <Link
               href="/faq"
-              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/faq' ? 'text-amber-600 font-bold' : ''}`}
+              className={`text-gray-800 hover:text-yellow-600 transition font-medium ${pathname === '/faq' ? 'text-amber-600 font-bold' : ''}`}
             >
               FAQ
             </Link>
             <Link
               href="/contact"
-              className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname === '/contact' ? 'text-amber-600 font-bold' : ''}`}
+              className={`text-gray-800 hover:text-yellow-600 transition font-medium ${pathname === '/contact' ? 'text-amber-600 font-bold' : ''}`}
             >
               Contact
             </Link>
             {utilisateur?.role === 'admin' && (
               <Link
                 href="/admin/produits"
-                className={`text-gray-800 hover:text-amber-600 transition font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
+                className={`text-gray-800 hover:text-yellow-600 transition font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
               >
                 Admin
               </Link>
@@ -149,35 +149,35 @@ export default function Navbar() {
               <Link
                 href="/"
                 onClick={fermerMenu}
-                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/' ? 'text-amber-600 font-bold' : ''}`}
+                className={`block text-gray-800 hover:text-yellow-600 transition py-2 font-medium ${pathname === '/' ? 'text-amber-600 font-bold' : ''}`}
               >
                 Accueil
               </Link>
               <Link
                 href="/produits"
                 onClick={fermerMenu}
-                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/produits' ? 'text-amber-600 font-bold' : ''}`}
+                className={`block text-gray-800 hover:text-yellow-600 transition py-2 font-medium ${pathname === '/produits' ? 'text-amber-600 font-bold' : ''}`}
               >
                 Produits
               </Link>
               <Link
                 href="/about"
                 onClick={fermerMenu}
-                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/about' ? 'text-amber-600 font-bold' : ''}`}
+                className={`block text-gray-800 hover:text-yellow-600 transition py-2 font-medium ${pathname === '/about' ? 'text-amber-600 font-bold' : ''}`}
               >
                 À propos
               </Link>
               <Link
                 href="/faq"
                 onClick={fermerMenu}
-                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/faq' ? 'text-amber-600 font-bold' : ''}`}
+                className={`block text-gray-800 hover:text-yellow-600 transition py-2 font-medium ${pathname === '/faq' ? 'text-amber-600 font-bold' : ''}`}
               >
                 FAQ
               </Link>
               <Link
                 href="/contact"
                 onClick={fermerMenu}
-                className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname === '/contact' ? 'text-amber-600 font-bold' : ''}`}
+                className={`block text-gray-800 hover:text-yellow-600 transition py-2 font-medium ${pathname === '/contact' ? 'text-amber-600 font-bold' : ''}`}
               >
                 Contact
               </Link>
@@ -185,7 +185,7 @@ export default function Navbar() {
                 <Link
                   href="/admin/produits"
                   onClick={fermerMenu}
-                  className={`block text-gray-800 hover:text-amber-600 transition py-2 font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
+                  className={`block text-gray-800 hover:text-yellow-600 transition py-2 font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
                 >
                   Admin
                 </Link>
@@ -197,7 +197,7 @@ export default function Navbar() {
                     <Link
                       href="/profil"
                       onClick={fermerMenu}
-                      className="block text-gray-800 hover:text-amber-600 transition py-2 font-medium"
+                      className="block text-gray-800 transition py-2 font-medium"
                     >
                       Mon profil ({utilisateur.prenom})
                     </Link>

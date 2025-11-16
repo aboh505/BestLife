@@ -20,7 +20,6 @@ export default function ProductsManagement() {
     prix: '',
     ancienPrix: '',
     description: '',
-    descriptionLongue: '',
     stock: '',
     image: '',
     caracteristiques: []
@@ -175,7 +174,6 @@ export default function ProductsManagement() {
       prix: product.prix,
       ancienPrix: product.ancienPrix || '',
       description: product.description,
-      descriptionLongue: product.descriptionLongue || '',
       stock: product.stock,
       image: product.image,
       caracteristiques: product.caracteristiques || []
@@ -195,7 +193,6 @@ export default function ProductsManagement() {
       prix: '',
       ancienPrix: '',
       description: '',
-      descriptionLongue: '',
       stock: '',
       image: '',
       caracteristiques: []
@@ -525,13 +522,27 @@ export default function ProductsManagement() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold mb-2">Description longue</label>
+                  <label className="block text-sm font-bold mb-2">Caractéristiques (une par ligne)</label>
                   <textarea
                     rows="4"
-                    value={formData.descriptionLongue}
-                    onChange={(e) => setFormData({ ...formData, descriptionLongue: e.target.value })}
+                    value={formData.caracteristiques.join('\n')}
+                    onChange={(e) => setFormData({ ...formData, caracteristiques: e.target.value.split('\n').filter(c => c.trim()) })}
+                    placeholder="Écran AMOLED 6.7 pouces\nProcesseur Snapdragon 8 Gen 3\nRAM 12GB\nStockage 256GB"
                     className="w-full border-2 border-gray-200 rounded-lg px-4 py-2"
                   />
+                  {formData.caracteristiques.length > 0 && (
+                    <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+                      <p className="text-xs font-semibold text-gray-600 mb-2">Aperçu:</p>
+                      <ul className="space-y-1">
+                        {formData.caracteristiques.map((carac, idx) => (
+                          <li key={idx} className="flex items-start text-sm text-gray-700">
+                            <span className="text-green-600 mr-2">✓</span>
+                            <span>{carac}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex justify-end space-x-4 pt-4">

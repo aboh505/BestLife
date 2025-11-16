@@ -15,7 +15,7 @@ export default function Home() {
       description: 'Découvrez les derniers iPhone, Samsung Galaxy et plus encore',
       image: '/hero1.jpg',
       badge: 'Nouveau',
-      gradient: 'from-blue-500/80 to-blue-700/80'
+      gradient: 'from-white-600/80 to-white-800/80'
     },
     {
       title: 'Offres Exceptionnelles',
@@ -31,15 +31,15 @@ export default function Home() {
       description: 'Équipez votre maison avec les meilleurs appareils',
       image: '/col1.jpg',
       badge: 'Tendance',
-      gradient: 'from-amber-500/80 to-amber-700/80'
+      gradient: 'from-white-600/80 to-white-800/80'
     },
     {
       title: 'Bien-être & Confort',
       subtitle: 'MEUBLES & DÉCORATION',
       description: 'Transformez votre espace de vie',
-      image: '/s2.jpg',
+      image: '/',
       badge: 'Lifestyle',
-      gradient: 'from-green-400/80 to-green-600/80'
+      gradient: 'from-white-600/80 to-white-800/80'
     }
   ];
 
@@ -121,7 +121,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Carousel - Enhanced */}
-      <section className="relative h-[600px] bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+      <section className="relative h-[700px] bg-gradient-to-br from-gray-900 to-black overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
@@ -143,11 +143,11 @@ export default function Home() {
                     {slide.badge}
                   </span>
                 </div>
-                <p className="text-lg uppercase tracking-widest mb-3 text-amber-300 font-semibold">{slide.subtitle}</p>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <p className="text-lg uppercase tracking-widest mb-3 text-amber-300 font-semibold" style={{ fontFamily: 'var(--bodyFontStack)' }}>{slide.subtitle}</p>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style={{ fontFamily: 'var(--bodyFontStack)' }}>
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 text-gray-200 font-light">{slide.description}</p>
+                <p className="text-xl md:text-2xl mb-8 text-gray-200 font-light" style={{ fontFamily: 'var(--bodyFontStack)' }}>{slide.description}</p>
                 <Link href="/produits">
 
 
@@ -193,11 +193,11 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <Star className="w-8 h-8 text-amber-500 fill-amber-500" />
-                <h2 className="text-4xl font-black">Nouveautés</h2>
+                <h2 className="text-4xl font-black" style={{ fontFamily: 'var(--bodyFontStack)' }}>Nouveautés</h2>
               </div>
-              <p className="text-gray-600 text-lg">Les derniers produits qui vont changer votre quotidien</p>
+              <p className="text-gray-600 text-lg" style={{ fontFamily: 'var(--bodyFontStack)' }}>Les derniers produits qui vont changer votre quotidien</p>
             </div>
-            <Link href="/produits" className="hidden md:block bg-yellow-600 text-white px-6 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">
+            <Link href="/produits" className="hidden md:block bg-yellow-600 text-white px-6 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg" style={{ fontFamily: 'var(--bodyFontStack)' }}>
               Voir Tout →
             </Link>
           </div>
@@ -226,14 +226,14 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-xs text-amber-600 font-bold mb-2 uppercase tracking-wider">{produit.marque}</p>
-                  <h3 className="font-bold text-xl mb-3">{produit.nom}</h3>
+                  <p className="text-xs text-amber-600 font-bold mb-2 uppercase tracking-wider" style={{ fontFamily: 'var(--bodyFontStack)' }}>{produit.marque}</p>
+                  <h3 className="font-bold text-xl mb-3" style={{ fontFamily: 'var(--bodyFontStack)' }}>{produit.nom}</h3>
 
                   <div>
                     {produit.ancienPrix && (
-                      <p className="text-sm text-gray-400 line-through font-semibold">{produit.ancienPrix.toLocaleString()} FCFA</p>
+                      <p className="text-sm text-gray-400 line-through font-semibold" style={{ fontFamily: 'var(--bodyFontStack)' }}>{produit.ancienPrix.toLocaleString()} FCFA</p>
                     )}
-                    <p className="text-2xl font-black text-black">{produit.prix.toLocaleString()} <span className="text-sm font-normal">FCFA</span></p>
+                    <p className="text-2xl font-black text-black" style={{ fontFamily: 'var(--bodyFontStack)' }}>{produit.prix.toLocaleString()} <span className="text-sm font-normal">FCFA</span></p>
                   </div>
                 </div>
               </div>
@@ -242,17 +242,34 @@ export default function Home() {
         </div>
       </section>
 
-
-
-      {/* Special Offers Banner */}
-      <section className="py-16 bg-gradient-to-r from-yellow-600 via-yellow-600 to-yellow-700">
+ {/* Why Choose Us */}
+      <section className="py-20 bg-gradient-to-br from-gray-800 via-black to-gray-800 text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center text-black">
-            <h2 className="text-5xl font-black mb-4">🔥 OFFRES FLASH 🔥</h2>
-            <p className="text-2xl font-bold mb-6">Jusqu'à -10% sur une sélection de produits</p>
-            <Link className="bg-white text-amber-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-xl" href="/produits">
-              J'en profite maintenant
-            </Link>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black mb-4" style={{ fontFamily: 'var(--bodyFontStack)' }}>Pourquoi Choisir Best Life ?</h2>
+            <p className="text-gray-400 text-lg" style={{ fontFamily: 'var(--bodyFontStack)' }}>Votre satisfaction est notre priorité</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">✓</div>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600" style={{ fontFamily: 'var(--bodyFontStack)' }}>Livraison Express</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'var(--bodyFontStack)' }}>Livraison rapide partout au Cameroun</p>
+            </div>
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">✓</div>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600" style={{ fontFamily: 'var(--bodyFontStack)' }}>100% Sécurisé</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'var(--bodyFontStack)' }}>Paiement et données protégés</p>
+            </div>
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">✓</div>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600" style={{ fontFamily: 'var(--bodyFontStack)' }}>Produits Authentiques</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'var(--bodyFontStack)' }}>Garantie d'authenticité à 100%</p>
+            </div>
+            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
+              <div className="text-6xl mb-6">✓</div>
+              <h3 className="text-xl font-bold mb-3 text-yellow-600" style={{ fontFamily: 'var(--bodyFontStack)' }}>Support 24/7</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'var(--bodyFontStack)' }}>Service client toujours disponible</p>
+            </div>
           </div>
         </div>
       </section>
@@ -261,8 +278,8 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black mb-3">Collections Spéciales</h2>
-            <p className="text-gray-600 text-lg">Des sélections soigneusement choisies pour vous</p>
+            <h2 className="text-4xl font-black mb-3" style={{ fontFamily: 'var(--bodyFontStack)' }}>Collections Spéciales</h2>
+            <p className="text-gray-600 text-lg" style={{ fontFamily: 'var(--bodyFontStack)' }}>Des sélections soigneusement choisies pour vous</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {collections.map((collection, index) => (
@@ -276,8 +293,8 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   <div className="absolute bottom-8 left-8 text-white">
-                    <h3 className="text-3xl font-black mb-3">{collection.title}</h3>
-                    <span className="inline-block bg-amber-500 text-white px-6 py-2 rounded-full font-bold group-hover:bg-amber-600 transition shadow-lg">
+                    <h3 className="text-3xl font-black mb-3" style={{ fontFamily: 'var(--bodyFontStack)' }}>{collection.title}</h3>
+                    <span className="inline-block bg-amber-500 text-white px-6 py-2 rounded-full font-bold group-hover:bg-amber-600 transition shadow-lg" style={{ fontFamily: 'var(--bodyFontStack)' }}>
                       Explorer →
                     </span>
                   </div>
@@ -288,63 +305,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-br from-gray-800 via-black to-gray-800 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black mb-4">Pourquoi Choisir Best Life ?</h2>
-            <p className="text-gray-400 text-lg">Votre satisfaction est notre priorité</p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
-              <div className="text-6xl mb-6">🚚</div>
-              <h3 className="text-xl font-bold mb-3 text-yellow-600">Livraison Express</h3>
-              <p className="text-gray-400">Livraison rapide partout au Cameroun</p>
-            </div>
-            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
-              <div className="text-6xl mb-6">🔒</div>
-              <h3 className="text-xl font-bold mb-3 text-yellow-600">100% Sécurisé</h3>
-              <p className="text-gray-400">Paiement et données protégés</p>
-            </div>
-            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
-              <div className="text-6xl mb-6">✓</div>
-              <h3 className="text-xl font-bold mb-3 text-yellow-600">Produits Authentiques</h3>
-              <p className="text-gray-400">Garantie d'authenticité à 100%</p>
-            </div>
-            <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition">
-              <div className="text-6xl mb-6">💬</div>
-              <h3 className="text-xl font-bold mb-3 text-yellow-600">Support 24/7</h3>
-              <p className="text-gray-400">Service client toujours disponible</p>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
-      {/* Categories Showcase */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold mb-3">Explorez Nos Catégories</h2>
-            <p className="text-gray-600 text-lg">Trouvez exactement ce dont vous avez besoin</p>
-          </div>
-          <div className="grid grid-cols-2 ml-50 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {[
-              { name: 'Smartphones', icon: '📱', color: 'from-blue-300 to-blue-600' },
-              { name: 'Électronique', icon: '💻', color: 'from-purple-300 to-purple-600' },
-              { name: 'Bien-être', icon: '🌿', color: 'from-green-300 to-green-600' },
-              { name: 'Meubles', icon: '🛋️', color: 'from-orange-300 to-orange-600' },
-
-            ].map((cat, idx) => (
-              <Link key={idx} href="/produits">
-                <div className={`bg-gradient-to-br ${cat.color} rounded-2xl p-6 text-center text-white hover:scale-105 transition transform cursor-pointer shadow-lg`}>
-                  <div className="text-5xl mb-3">{cat.icon}</div>
-                  <h3 className="font-bold text-lg">{cat.name}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
     </div>
   );
